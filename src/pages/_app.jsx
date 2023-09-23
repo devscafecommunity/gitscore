@@ -13,6 +13,7 @@ export default class MyApp extends App {
         return (
             <div>
                 <Navbar />
+                <span style={{margin: "10",}}></span>
                 <Component {...pageProps} />
             </div>
         );

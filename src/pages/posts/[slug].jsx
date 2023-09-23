@@ -9,15 +9,15 @@ import { postFilePaths, POSTS_PATH } from '../../utils/mdxUtils'
 import PostHeader from '../../components/Posts/PostHeader'
 import PostRender from '../../components/Posts/PostRender'
 import PostToolBar from '../../components/Posts/PostToolBar'
-import CoverImage from '../../components/Posts/CoverImage'
+import GoBack from '../../components/Posts/GoBack'
 
 export default function PostPage({ source, frontMatter }) {
   return (
     <div>
       <PostToolBar frontMatter={frontMatter} />
-      <CoverImage src={frontMatter.cover} title={frontMatter.title}/>
       <PostHeader frontMatter={frontMatter} />
       <PostRender source={source} />
+      <GoBack />
     </div>
   )
 }

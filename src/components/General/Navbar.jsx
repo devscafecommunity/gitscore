@@ -4,29 +4,23 @@ import Image from 'next/image';
 export default function Navbar() {
     let paths = [
         {
-            path: '/',
-            name: 'Home'
+            path: '/newer',
+            name: 'Posts Recentes'
         },
-        {
-            path: '/about',
-            name: 'About'
-        },
-        {
-            path: '/contact',
-            name: 'Contact'
-        }
     ]
 
     return (
         <nav id={"navbar"}>
             <div>
-                <Image
-                    src="/logo.png"
-                    alt="Logo"
-                    width={50}
-                    height={50}
-                    id={"navbar-logo"}
-                />
+                <Link href={"/"}>
+                    <Image
+                        src="/logo.png"
+                        alt="Logo"
+                        width={50}
+                        height={50}
+                        id={"navbar-logo"}
+                    />
+                </Link>
             </div>
             <div>
                 <ul id={"navbar-list"}>
