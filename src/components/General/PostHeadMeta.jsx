@@ -6,6 +6,8 @@ export default function PostHeadMeta({ frontMatter, slug }) {
     return (
         <Head>
             <meta property="og:image" content={preview} />
+            <meta property="og:image:width" content="1200" />
+            <meta property="og:image:height" content="630" />
         </Head>
     );
 }
