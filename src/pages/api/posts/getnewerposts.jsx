@@ -70,6 +70,7 @@ export default function GetNewerPosts( req, res ){
   let contentresponse = filteredPosts.map((post) => {
     return {
       title: post.data.title,
+      author: post.data.author,
       description: post.data.description,
       date: post.data.date,
       image: post.data.image,
