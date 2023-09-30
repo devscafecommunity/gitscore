@@ -10,7 +10,6 @@ import PostHeader from '../../components/Posts/PostHeader'
 import PostRender from '../../components/Posts/PostRender'
 import PostToolBar from '../../components/Posts/PostToolBar'
 import GoBack from '../../components/Posts/GoBack'
-import PostHeader from '../../components/Posts/PostHeader'
 import PostHeadMeta from '../../components/General/PostHeadMeta'
 
 export default function PostPage({ source, frontMatter, slug }) {
