@@ -10,10 +10,14 @@ import PostHeader from '../../components/Posts/PostHeader'
 import PostRender from '../../components/Posts/PostRender'
 import PostToolBar from '../../components/Posts/PostToolBar'
 import GoBack from '../../components/Posts/GoBack'
+import PostHeader from '../../components/Posts/PostHeader'
+import PostHeadMeta from '../../components/General/PostHeadMeta'
 
-export default function PostPage({ source, frontMatter }) {
+export default function PostPage({ source, frontMatter, slug }) {
   return (
     <div>
+      <PostHeadMeta frontMatter={frontMatter} slug={slug} />
+      <PostHeader frontMatter={frontMatter} />
       <PostToolBar frontMatter={frontMatter} />
       <PostHeader frontMatter={frontMatter} />
       <PostRender source={source} />
@@ -39,6 +43,7 @@ export const getStaticProps = async ({ params }) => {
 
   return {
     props: {
+      slug: params.slug,
       source: mdxSource,
       frontMatter: data,
     },
