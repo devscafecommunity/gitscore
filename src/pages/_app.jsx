@@ -18,7 +18,7 @@ export default class MyApp extends App {
             <div>
                 <Head>
                     <title>Dev's Cafe blog</title>
-                    <link rel="icon" href="/logo.png" />
+                    <link rel="icon" href="https://blog.devscafe.pt/logo.png" />
                 </Head>
                 <Navbar />
                 <span style={{margin: "10",}}></span>
