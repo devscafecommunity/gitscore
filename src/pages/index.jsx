@@ -9,6 +9,13 @@ import Head from "next/head";
 import PostsList from "../components/Index/PostsList";
 import Header from "../components/Index/Header";
 
+const meta = {
+  title: "Dev's Cafe blog",
+  description: "Blog ofcial Dev's Cafe",
+  url: "https://blog.devscafe.pt",
+  image: "https://blog.devscafe.pt/logo.png",
+};
+  
 export default function Index({ posts }) {
   return (
     <div
@@ -22,7 +29,6 @@ export default function Index({ posts }) {
     >
       <Head>
         <title>{meta.title}</title>
-        <link rel="icon" href={meta.favicon} />
         <meta name="description" content={meta.description} />
         <meta property="og:type" content="website" />
         <meta property="og:url" content={meta.url} />

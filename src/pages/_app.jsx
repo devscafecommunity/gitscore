@@ -8,19 +8,17 @@ import Head from 'next/head';
 // Components
 import Navbar from '../components/General/Navbar';
 
-const meta = {
-    favicon: "/logo.png",
-    title: "Blog Dev's Café",
-}
+
 
 export default class MyApp extends App {
+
     render() {
         const { Component, pageProps } = this.props;
         return (
             <div>
                 <Head>
-                    <title>{meta.title}</title>
-                    <link rel="icon" href={meta.favicon} />
+                    <title>Dev's Cafe blog</title>
+                    <link rel="icon" href="/logo.png" />
                 </Head>
                 <Navbar />
                 <span style={{margin: "10",}}></span>
