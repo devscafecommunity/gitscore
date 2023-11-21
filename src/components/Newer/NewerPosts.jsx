@@ -44,23 +44,90 @@ export default function NewerPosts({ posts }) {
     let filteredPosts = filterDate(posts);
 
     return (
-        <div>
+        <div
+            style={{
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                justifyContent: "center",
+                width: "100%",
+                maxWidth: "800px",
+                padding: "0 1rem",
+            }}
+        >
             <h1>Posts Recentes.</h1>
-            <ul>
+            {/* <ul>
                 {filteredPosts.map((post) => (
-                    <li key={post.filePath}>
-                        <Link
-                            as={`/posts/${post.filePath.replace(/\.mdx?$/, "")}`}
-                            href={`/posts/[slug]`}
+                    <li key={post.filePath} >
+                        <div
+                            style={{
+                                backgroundColor: "white",
+                                padding: "1rem",
+                                margin: "1rem",
+                                borderRadius: "10px",
+                            }}
                         >
-                            <h2>{post.data.title}</h2>
-                        </Link>
-                        <p>{post.data.description}</p>
-                        <p>{post.data.date}</p>
-                        <p>by {post.data.author}</p>
+                            <Link
+                                as={`/posts/${post.filePath.replace(/\.mdx?$/, "")}`}
+                                href={`/posts/[slug]`}
+                            >
+                                <h2>{post.data.title}</h2>
+                            </Link>
+                            <p>{post.data.description}</p>
+                            <p>{post.data.date}</p>
+                            <p>by {post.data.author}</p>
+                        </div>
                     </li>
                 ))}
-            </ul>
+            </ul> */}
+            <div>
+                {filteredPosts.map((post) => (
+                    <div key={post.filePath} >
+                        <div
+                            style={{
+                                backgroundColor: "white",
+                                padding: "1rem",
+                                margin: "1rem",
+                                borderRadius: "10px",
+                                flex: 1,
+                                display: "flex",
+                                flexDirection: "row",
+                                gap: "1rem",
+                            }}
+                        >
+                            <div>
+                                <Image
+                                    src={post.data.cover}
+                                    alt="Logo"
+                                    width={150}
+                                    height={150}
+                                    id={"post-list-image"}
+                                />
+                            </div>
+                            <div>
+                                <div>
+                                    <Link
+                                        as={`/posts/${post.filePath.replace(/\.mdx?$/, "")}`}
+                                        href={`/posts/[slug]`}
+                                    >
+                                        {post.data.title}
+                                    </Link>
+                                </div>
+                                <div>
+                                    <p>{post.data.description}</p>
+                                </div>
+                                <div>
+                                    <p>{post.data.date}</p>
+                                </div>
+                                <div>
+                                    <p>by {post.data.author}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                ))
+                }
+            </div>
         </div>
     );
 }

@@ -10,9 +10,41 @@ import Header from '../components/Index/Header'
 
 export default function Index({ posts }) {
   return (
-    <div>
-      <Header />
-      <PostsList posts={posts} />
+    <div
+    style={{
+      flex: 1,
+      display: "flex",
+      flexDirection: "column",
+      alignItems: "center",
+      justifyContent: "center",
+    }}
+    >
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          justifyContent: "center",
+          width: "100%",
+          maxWidth: "800px",
+          padding: "0 1rem",
+        }}
+      >
+        <Header />
+      </div>
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          justifyContent: "center",
+          width: "100%",
+          maxWidth: "800px",
+          padding: "0 1rem",
+        }}
+      >
+        <PostsList posts={posts} />
+      </div>
     </div>
   )
 }

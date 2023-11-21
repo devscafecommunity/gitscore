@@ -27,7 +27,7 @@ export default function Navbar() {
         </Link>
       </div>
       <div>
-        <ul id={"navbar-list"}>
+        {/* <ul id={"navbar-list"}>
           {paths.map((path) => (
             <li key={path.path}>
               <Link href={path.path}>
@@ -35,7 +35,21 @@ export default function Navbar() {
               </Link>
             </li>
           ))}
-        </ul>
+        </ul> */}
+        <div id={"navbar-list"}>
+          {paths.map((path) => (
+            <div key={path.path}>
+              <Link href={path.path}
+                style={{
+                  textDecoration: "none",
+                  color: "var(--text-primary)",
+                }}
+              >
+                <h2>{path.name}</h2>
+              </Link>
+            </div>
+          ))}
+        </div>
       </div>
     </nav>
   );

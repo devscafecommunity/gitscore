@@ -34,8 +34,24 @@ export default function PostsList({ posts }) {
   const postsToDisplay = searchTerm.length < 1 ? posts : searchResults;
 
   return (
-    <div id={"post-list-container"}>
-      <div>
+    <div 
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        justifyContent: "center",
+        width: "100%",
+        maxWidth: "800px",
+        padding: "0 1rem",
+        paddingTop: "2rem",
+      }}
+    >
+      <div
+        style={{
+          // Fixed w 100% of parent
+          width: "100%",
+        }}
+      >
         <input
           type="text"
           placeholder="Search"
@@ -46,9 +62,33 @@ export default function PostsList({ posts }) {
       </div>
 
       <div>
-        <ul id={"post-list"}>
+        <div
+          style={{
+            listStyle: "none",
+            padding: "0",
+            margin: "0",
+            flex: 1,
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            justifyContent: "center",
+            width: "100%",
+            maxWidth: "700px",
+          }}
+        >
           {postsToDisplay.map((post) => (
-            <li key={post.filePath} id={"post-list-object"}>
+            <div key={post.filePath} id={"post-list-object"}
+              style={{
+                backgroundColor: "white",
+                padding: "1rem",
+                margin: "1rem",
+                borderRadius: "10px",
+                flex: 1,
+                display: "flex",
+                flexDirection: "row",
+                gap: "1rem",
+              }}
+            >
               <div>
                 <Image
                   src={post.data.cover}
@@ -77,9 +117,9 @@ export default function PostsList({ posts }) {
                   <p>by {post.data.author}</p>
                 </div>
               </div>
-            </li>
+            </div>
           ))}
-        </ul>
+          </div>
       </div>
     </div>
   );

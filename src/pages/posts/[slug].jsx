@@ -16,7 +16,6 @@ export default function PostPage({ source, frontMatter, slug }) {
   return (
     <div>
       <PostHeadMeta frontMatter={frontMatter} slug={slug} />
-      <PostHeader frontMatter={frontMatter} />
       <PostToolBar frontMatter={frontMatter} />
       <PostHeader frontMatter={frontMatter} />
       <PostRender source={source} />
