@@ -9,10 +9,7 @@ import Navbar from '../components/General/Navbar';
 
 const meta = {
     favicon: "/logo.png",
-    title: "Blog do Dev's Café",
-    image: "/logo.png",
-    url: "https://blog.devscafe.pt/",
-    description: "Blog oficial da comunidade.",
+    title: "Blog Dev's Café",
 }
 
 export default class MyApp extends App {
@@ -20,6 +17,10 @@ export default class MyApp extends App {
         const { Component, pageProps } = this.props;
         return (
             <div>
+                <Head>
+                    <title>{meta.title}</title>
+                    <link rel="icon" href={meta.favicon} />
+                </Head>
                 <Navbar />
                 <span style={{margin: "10",}}></span>
                 <Component {...pageProps} />
