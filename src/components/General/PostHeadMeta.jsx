@@ -6,9 +6,9 @@ export default function PostHeadMeta({ frontMatter, slug }) {
     return (
         <Head>
             <meta property="og:type" content="website" />
-            {/* <meta property="twitter:image" content={preview} /> */}
+            <meta property="twitter:image" content={preview} />
             {/* <meta property="og:image" content={preview} /> */}
-            <meta property="og:image" content={frontMatter.cover} />
+            {/* <meta property="og:image" content={frontMatter.cover} /> */}
         </Head>
     );
 }
