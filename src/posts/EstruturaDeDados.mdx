@@ -52,7 +52,7 @@ Imagem de um vetor:
 # 2. Pilhas(Stacks)
 A pilha é baseada no princípio LIFO (Last In First Out), ou seja, o ultimo elemento a entrar é o primeiro a sair.
 <br/>
-Pilhas tem como fundamento duas opera~ções basicas:
+Pilhas tem como fundamento duas operações basicas:
     - Push: Adiciona um elemento no topo da pilha
     - Pop: Remove o elemento do topo da pilha
 <br/>
@@ -67,8 +67,58 @@ Imagina-se uma pilha de pratos, onde o ultimo prato a ser colocado é o primeiro
     - A pilha é homogẽnea, ou seja, só pode armazenar dados do mesmo tipo
     - A pilha tambem tem acesso restrito, ou seja, só podemos acessar o elemento do topo da pilha
     - A pilha não é dinamica, ou seja, não pode crescer ou diminuir
+Imagem de uma pilha:
+![Pilha](/postassets/EstruturaDeDados/pilha.png)
+# 3. Filas(Queues)
+São similares ás pilhas, as filas são baseadas no princípio FIFO (First In First Out), ou seja, o primeiro elemento a entrar é o primeiro a sair.
+<br/>
+Filas tem como fundamento duas operações basicas:
+    - Enqueue: Adiciona um elemento no final da fila
+    - Dequeue: Remove o elemento do inicio da fila
+<br/>
+Imagina-se uma fila de pessoas, onde a primeira pessoa a entrar é a primeira a sair.
+- Só se consegue "inserir" (Que no caso seria enfileirar) novas pessoas no final da fila.
+- Só se consegue "remover" (Que no caso seria desenfileirar) pessoas do inicio da fila.
+<br/>
+- Vantagens:
+    - Acesso rapido aos elementos
+    - Facil de implementar
+- Desvantagens:
+    - A fila é homogẽnea, ou seja, só pode armazenar dados do mesmo tipo
+    - A fila tambem tem acesso restrito, ou seja, só podemos acessar o elemento do inicio da fila
+    - A fila não é dinamica, ou seja, não pode crescer ou diminuir
+Imagem de uma fila:
+![Fila](/postassets/EstruturaDeDados/fila.png)
+# 4. Listas Ligadas(Linked Lists)
+Já as listas são estruturas de dados dinamicas, ou seja, elas podem crescer ou diminuir de tamanho, elas são lineares e podem parecer com arrays de primeira,
+mas a sua maior diferença é que os elementos não precisam estar em posições de memoria contiguas, ou seja, os elementos podem estar em qualquer lugar da memoria.
+
+Como funcionam as listas ligadas em si? Bom, cada elemento da lista é chamado de nó, e cada nó tem dois campos, um campo que armazena o dado e um campo que armazena o endereço do proximo nó.
+
+Pra que elas são utilzadas? Bom, elas são utilizadas quando não sabemos o tamanho da lista, ou seja, quando não sabemos quantos elementos a lista vai ter, ou quando não sabemos o tamanho maximo que a lista pode ter.
+
+<br/>
+Listas tem como fundamento duas operações basicas:
+    - Insert: Adiciona um elemento em uma posição especifica da lista
+    - Remove: Remove um elemento de uma posição especifica da lista
+<br/>
+- Vantagens:
+    - Acesso rapido aos elementos
+    - Facil de implementar
+    - A lista é dinamica, ou seja, pode crescer ou diminuir
+- Desvantagens:
+    - A lista ligada é homogẽnea, ou seja, só pode armazenar dados do mesmo tipo
+    
+Imagem de uma lista:
+![Lista](/postassets/EstruturaDeDados/listaligada.png)
 <br/>
 
+<br/>
+# Implementações
+
+<br/>
+
+<br/>
 #### Codigo de uma pilha que insere e remove dados;
 <br/>
 
@@ -100,29 +150,7 @@ int pop(pilha *p){
     p->topo--;
     return aux;
 }
-```    
-<br/>
-Imagem de uma pilha:
-![Pilha](/images/EstruturaDeDados/pilha.png)
-# 3. Filas(Queues)
-São similares ás pilhas, as filas são baseadas no princípio FIFO (First In First Out), ou seja, o primeiro elemento a entrar é o primeiro a sair.
-<br/>
-Filas tem como fundamento duas opera~ções basicas:
-    - Enqueue: Adiciona um elemento no final da fila
-    - Dequeue: Remove o elemento do inicio da fila
-<br/>
-Imagina-se uma fila de pessoas, onde a primeira pessoa a entrar é a primeira a sair.
-- Só se consegue "inserir" (Que no caso seria enfileirar) novas pessoas no final da fila.
-- Só se consegue "remover" (Que no caso seria desenfileirar) pessoas do inicio da fila.
-<br/>
-- Vantagens:
-    - Acesso rapido aos elementos
-    - Facil de implementar
-- Desvantagens:
-    - A fila é homogẽnea, ou seja, só pode armazenar dados do mesmo tipo
-    - A fila tambem tem acesso restrito, ou seja, só podemos acessar o elemento do inicio da fila
-    - A fila não é dinamica, ou seja, não pode crescer ou diminuir
-<br/>
+```
 
 #### Codigo de uma fila que insere e remove dados;
 <br/>
@@ -158,30 +186,6 @@ int dequeue(fila *f){
     return aux;
 }
 ```
-<br/>
-Imagem de uma fila:
-![Fila](/images/EstruturaDeDados/fila.png)
-# 4. Listas Ligadas(Linked Lists)
-Já as listas são estruturas de dados dinamicas, ou seja, elas podem crescer ou diminuir de tamanho, elas são lineares e podem parecer com arrays de primeira,
-mas a sua maior diferença é que os elementos não precisam estar em posições de memoria contiguas, ou seja, os elementos podem estar em qualquer lugar da memoria.
-
-Como funcionam as listas ligadas em si? Bom, cada elemento da lista é chamado de nó, e cada nó tem dois campos, um campo que armazena o dado e um campo que armazena o endereço do proximo nó.
-
-Pra que elas são utilzadas? Bom, elas são utilizadas quando não sabemos o tamanho da lista, ou seja, quando não sabemos quantos elementos a lista vai ter, ou quando não sabemos o tamanho maximo que a lista pode ter.
-
-<br/>
-Listas tem como fundamento duas opera~ções basicas:
-    - Insert: Adiciona um elemento em uma posição especifica da lista
-    - Remove: Remove um elemento de uma posição especifica da lista
-<br/>
-- Vantagens:
-    - Acesso rapido aos elementos
-    - Facil de implementar
-    - A lista é dinamica, ou seja, pode crescer ou diminuir
-- Desvantagens:
-    - A lista ligada é homogẽnea, ou seja, só pode armazenar dados do mesmo tipo
-<br/>
-
 #### Codigo de uma lista ligada que insere e remove dados;
 <br/>
 
@@ -224,12 +228,6 @@ void remove(lista *l, int x){
 }
 
 ```
-Imagem de uma lista:
-![Lista](/postassets/EstruturaDeDados/listaligada.png)
-<br/>
-<br/>
-
-
 <br/>
 
 # Conclusão
