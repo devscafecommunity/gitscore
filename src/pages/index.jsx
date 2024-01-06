@@ -16,39 +16,39 @@ const meta = {
   image: "https://blog.devscafe.pt/logo.png",
 };
   
+const centerAlign = {
+  display: "flex",
+  flexDirection: "column",
+  alignItems: "center",
+  justifyContent: "center",
+}
+
+const divStyle = {
+  width: "100%",
+  maxWidth: "800px",
+  padding: "0 1rem",
+}
+
 export default function Index({ posts }) {
   return (
     <div
       style={{
+        ...centerAlign,
         flex: 1,
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        justifyContent: "center",
       }}
     >
       <div
         style={{
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          justifyContent: "center",
-          width: "100%",
-          maxWidth: "800px",
-          padding: "0 1rem",
+          ...centerAlign,
+          ...divStyle,
         }}
       >
         <Header />
       </div>
       <div
         style={{
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          justifyContent: "center",
-          width: "100%",
-          maxWidth: "800px",
-          padding: "0 1rem",
+          ...centerAlign,
+          ...divStyle,
         }}
       >
         <PostsList posts={posts} />
@@ -59,6 +59,7 @@ export default function Index({ posts }) {
 
 export function getStaticProps() {
   const posts = postFilePaths().map((filePath) => {
+    
     const source = fs.readFileSync(path.join(POSTS_PATH, filePath));
     const { content, data } = matter(source);
 
