@@ -1,0 +1,14 @@
+:root {
+    --first-body-background-color: #c9cdb9;
+    --first-font-color: #5b352c;
+}
+
+body {
+    font-family: "JetBrains Mono", sans-serif;
+    background-color: var(--first-body-background-color);
+    color: var(--first-font-color);
+    margin: 0 auto;
+    max-width: 800px;
+    padding: 32px;
+    flex-direction: column;
+} 
