@@ -3,6 +3,14 @@ import Link from "next/link";
 import Image from "next/image";
 import { useState, useEffect } from "react";
 
+const flexStyle = {
+  display: "flex",
+  flexDirection: "column",
+  alignItems: "center",
+  justifyContent: "center",
+  width: "100%",
+}
+
 export default function PostsList({ posts }) {
   // Search bar
   const [searchTerm, setSearchTerm] = useState("");
@@ -36,14 +44,10 @@ export default function PostsList({ posts }) {
   return (
     <div 
       style={{
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        justifyContent: "center",
-        width: "100%",
+        ...flexStyle,
         maxWidth: "800px",
-        padding: "0 1rem",
-        paddingTop: "2rem",
+        padding: "0 16px",
+        paddingTop: "32px",
       }}
     >
       <div
@@ -64,15 +68,11 @@ export default function PostsList({ posts }) {
       <div>
         <div
           style={{
+            ...flexStyle,
             listStyle: "none",
             padding: "0",
             margin: "0",
             flex: 1,
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            justifyContent: "center",
-            width: "100%",
             maxWidth: "700px",
           }}
         >
@@ -80,13 +80,13 @@ export default function PostsList({ posts }) {
             <div key={post.filePath} id={"post-list-object"}
               style={{
                 backgroundColor: "white",
-                padding: "1rem",
-                margin: "1rem",
+                padding: "16px",
+                margin: "16px",
                 borderRadius: "10px",
                 flex: 1,
                 display: "flex",
                 flexDirection: "row",
-                gap: "1rem",
+                gap: "16px",
               }}
             >
               <div>
