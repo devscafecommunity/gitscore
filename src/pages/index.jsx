@@ -7,9 +7,6 @@ import { postFilePaths, POSTS_PATH } from "../utils/mdxUtils";
 import PostsList from "../components/Index/PostsList/PostsList";
 import Header from "../components/Index/Header/Header";
 
-// Styles
-import style from "../styles/index.module.css"
-
 const meta = {
   title: "Dev's Cafe blog",
   description: "Blog ofcial Dev's Cafe",
@@ -19,7 +16,7 @@ const meta = {
 
 export default function Index({ posts }) {
   return (
-    <div className={style.block} >
+    <div>
       <div>
         <Header />
         <PostsList posts={posts} />
