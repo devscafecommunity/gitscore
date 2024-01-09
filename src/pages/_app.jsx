@@ -1,17 +1,12 @@
 // _app.js
-
 import React from 'react';
 import App from 'next/app';
 import Head from 'next/head';
 
 // Components
-import Navbar from '../components/General/Navbar';
+import Navbar from '../components/General/Navbar/Navbar';
 
 // CSS
-import '../styles/header.css';
-import '../styles/navbar.css';
-import '../styles/post.css';
-import '../styles/searchBar.css';
 import '../styles/body.css';
 
 

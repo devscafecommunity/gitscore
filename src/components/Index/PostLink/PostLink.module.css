@@ -1,0 +1,33 @@
+.container a{
+  color: black;
+  text-decoration: none !important;
+}
+.post{
+  background-color: #e7ebda;
+  color: #422721;
+
+  padding: 16px;
+  margin: 16px;
+  border-radius: 30px;
+  border: 1px solid #5b352c;
+
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+
+  transition: all .3s;
+}
+.post:hover {
+  box-shadow: 0 0 15px rgba(0, 0, 0, .5);
+  transition: all .3s;
+}
+.post .title{
+  font-weight: bold;
+  font-size: 25px;
+}
+.post img{
+  border-radius: 20px;
+}
+.post p{
+  margin: 10px 0;
+}
