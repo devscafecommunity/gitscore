@@ -1,0 +1,31 @@
+/* INDEX.JSX */
+#header-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: 32px;
+}
+
+#header-image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+#header-image {
+    width: 400px;
+    height: 400px;
+    border-radius: 50%;
+}
+
+#header-text-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    font-size: 24px;
+    font-weight: 600;
+}

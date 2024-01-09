@@ -1,0 +1,63 @@
+/* Post List */
+#post-list-container {
+    display: flex;
+    justify-content: left;
+    align-items: left;
+    flex-direction: column;
+}
+
+#post-list {
+    display: flex;
+    flex-direction: column;
+}
+
+#post-list-object {
+    display: flex;
+    justify-content: left;
+    align-items: left;
+    flex-direction: row-reverse;
+    width: 100%;
+    padding: 64px;
+    gap: 48px;
+}
+
+/* POST HEADER */
+
+#post-header {
+    display: flex;
+    justify-content: left;
+    align-items: left;
+    flex-direction: column;
+    margin-bottom: 32px;
+    padding: 64px;
+}
+
+#post-headdings {
+    display: flex;
+    justify-content: left;
+    align-items: left;
+    flex-direction: column;
+    margin-bottom: 32px;
+}
+
+#post-meta {
+    display: flex;
+    justify-content: left;
+    align-items: left;
+    flex-direction: row;
+    margin-bottom: 32px;
+    gap: 16px;
+}
+
+#post-header-image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+#post-header-image {
+    width: 400px;
+    height: 400px;
+    border-radius: 50%;
+}

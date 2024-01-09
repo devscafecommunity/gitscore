@@ -2,6 +2,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useState, useEffect } from "react";
+import style from "./post.module.css";
 
 const flexStyle = {
   display: "flex",
@@ -10,6 +11,7 @@ const flexStyle = {
   justifyContent: "center",
   width: "100%",
 }
+
 
 export default function PostsList({ posts }) {
   // Search bar

@@ -1,5 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
+import style from "./navbar.module.css";
+
 
 export default function Navbar() {
   let paths = [
@@ -14,7 +16,7 @@ export default function Navbar() {
   ];
 
   return (
-    <nav id={"navbar"}>
+    <nav id={style.navbar}>
       <div>
         <Link href={"/"}>
           <Image
@@ -22,7 +24,7 @@ export default function Navbar() {
             alt="Logo"
             width={50}
             height={50}
-            id={"navbar-logo"}
+            id={style["navbar-logo"]}
           />
         </Link>
       </div>
@@ -36,7 +38,7 @@ export default function Navbar() {
             </li>
           ))}
         </ul> */}
-        <div id={"navbar-list"}>
+        <div id={style["navbar-list"]}>
           {paths.map((path) => (
             <div key={path.path}>
               <Link href={path.path}

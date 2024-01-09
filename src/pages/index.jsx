@@ -6,8 +6,8 @@ import { postFilePaths, POSTS_PATH } from "../utils/mdxUtils";
 import Head from "next/head";
 
 // Components
-import PostsList from "../components/Index/PostsList";
-import Header from "../components/Index/Header";
+import PostsList from "../components/Index/PostsList/PostsList";
+import Header from "../components/Index/Header/Header";
 
 const meta = {
   title: "Dev's Cafe blog",
