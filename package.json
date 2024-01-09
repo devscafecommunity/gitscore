@@ -8,7 +8,7 @@
   },
   "dependencies": {
     "gray-matter": "^4.0.2",
-    "next": "latest",
+    "next": "^14.0.4",
     "next-mdx-remote": "^3.0.1",
     "next-remote-watch": "1.0.0",
     "react": "^18.2.0",
