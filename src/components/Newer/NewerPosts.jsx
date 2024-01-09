@@ -28,6 +28,7 @@ Posts:
 import Link from "next/link";
 import Image from "next/image";
 import { useState, useEffect } from "react";
+import PostLink from "../Index/PostLink/PostLink";
 
     // Filter posts by date desc -> asc
     // newest -> oldest
@@ -81,51 +82,10 @@ export default function NewerPosts({ posts }) {
                 ))}
             </ul> */}
             <div>
-                {filteredPosts.map((post) => (
-                    <div key={post.filePath} >
-                        <div
-                            style={{
-                                backgroundColor: "white",
-                                padding: "1rem",
-                                margin: "1rem",
-                                borderRadius: "10px",
-                                flex: 1,
-                                display: "flex",
-                                flexDirection: "row",
-                                gap: "1rem",
-                            }}
-                        >
-                            <div>
-                                <Image
-                                    src={post.data.cover}
-                                    alt="Logo"
-                                    width={150}
-                                    height={150}
-                                    id={"post-list-image"}
-                                />
-                            </div>
-                            <div>
-                                <div>
-                                    <Link
-                                        as={`/posts/${post.filePath.replace(/\.mdx?$/, "")}`}
-                                        href={`/posts/[slug]`}
-                                    >
-                                        {post.data.title}
-                                    </Link>
-                                </div>
-                                <div>
-                                    <p>{post.data.description}</p>
-                                </div>
-                                <div>
-                                    <p>{post.data.date}</p>
-                                </div>
-                                <div>
-                                    <p>by {post.data.author}</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                ))
+                {
+                    filteredPosts.map((post) => (
+                        <PostLink data={post.data} filePath={post.filePath} key={post.filePath} />
+                    ))
                 }
             </div>
         </div>

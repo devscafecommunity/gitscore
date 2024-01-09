@@ -1,19 +1,16 @@
 "use client";
 import { useState, useEffect } from "react";
-import SearchBar from "../_SearchBar/SearchBar";
+import SearchBar from "../SearchBar/SearchBar";
 
 // Components
 import PostLink from "../PostLink/PostLink"
 
 // Style
-import style from "./post.module.css";
+import style from "./Post.module.css";
 
 function PostsList({ posts }) {
-  // Search bar
-  const [searchTerm, setSearchTerm] = useState("");
-  const [searchResults, setSearchResults] = useState([]);
+  const [postsDisplay, setPostDisplay] = useState(posts);
 
-  const [postsDisplay, setPostDisplay] = useState(searchTerm.length < 1 ? posts : searchResults);
   return (
     <div>
       <SearchBar posts={posts} setPostDisplay={setPostDisplay}/>
