@@ -1,4 +1,4 @@
-.postList{
+/* div{
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -6,7 +6,5 @@
 
     width: 100%;
     max-width: 800px;
-
-    padding: 0;
-    margin: 0;
-}
+    padding: 0 20px;
+} */

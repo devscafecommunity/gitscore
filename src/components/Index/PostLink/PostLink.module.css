@@ -1,0 +1,32 @@
+.container a{
+  color: black;
+  text-decoration: none !important;
+}
+.post{
+  background-color: white;
+
+  padding: 16px;
+  margin: 16px;
+  border-radius: 20px;
+  border: 1px solid #5b352c;
+
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+
+  transition: all .3s;
+}
+.post:hover {
+  box-shadow: 0 0 0 2px #5b352c;
+  transition: all .3s;
+}
+.post .title{
+  font-weight: bold;
+  font-size: 25px;
+}
+.post img{
+  border-radius: 20px;
+}
+.post p{
+  margin: 10px 0;
+}

@@ -22,7 +22,7 @@ export default function Header(){
                         color: "var(--text-secondary)",
                         textShadow: "1px 1px 2px rgba(0, 0, 0, 0.3)"
                     }}>
-                        <p>Blog oficial da comunidade.</p>
+                        <p>Blog oficial da comunidade Dev's Café.</p>
                 </span>
                 
             </div>
