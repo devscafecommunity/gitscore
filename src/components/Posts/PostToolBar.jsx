@@ -6,7 +6,9 @@ export default function PostToolBar({ frontMatter }) {
         <header>
             <nav>
                 <Link href="/" legacyBehavior>
-                    <a>👈 Retornar para a página inicial </a>
+                    <a
+                        style={{color: "auto", textDecoration: "none"}}
+                    >👈 Retornar para a página inicial </a>
                 </Link>
             </nav>
         </header>
