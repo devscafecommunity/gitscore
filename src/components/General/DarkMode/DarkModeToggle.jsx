@@ -16,14 +16,27 @@ const DarkModeToggle = () => {
         <Switch 
             checked={darkMode.value}
             onChange={darkMode.toggle}
-            checkedIcon={
-                <div>
-                    <WbSunnyIcon style={{position: "relative", top: 2}}/>
-                </div>
-            }
+            width={60}
+            
             uncheckedIcon={
                 <div>
-                    <Brightness3Icon style={{position: "relative", top: 2, marginLeft: "2px"}}/>
+                    <WbSunnyIcon 
+                        style={{
+                                position: "relative", 
+                                top: 2,
+                                left: 4,
+                            }}
+                        scale={0.2}
+                    />
+                </div>
+            }
+            checkedIcon={
+                <div>
+                    <Brightness3Icon style={{
+                        position: "relative", 
+                        top: 2,  
+                        transform: 'rotate(180deg)'
+                    }}/>
                 </div>
             }
             className={style.flex}
