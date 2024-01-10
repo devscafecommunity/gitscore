@@ -1,5 +1,9 @@
 import Link from "next/link";
 import Image from "next/image";
+import DarkModeToggle from "../DarkMode/DarkModeToggle"
+
+
+// Style
 import style from "./navbar.module.css";
 
 
@@ -52,6 +56,9 @@ export default function Navbar() {
             </div>
           ))}
         </div>
+      </div>
+      <div>
+        <DarkModeToggle/>
       </div>
     </nav>
   );
