@@ -57,7 +57,7 @@ export default function Navbar() {
           ))}
         </div>
       </div>
-      <div>
+      <div style={{marginRight: 10}}>
         <DarkModeToggle/>
       </div>
     </nav>
