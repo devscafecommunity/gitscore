@@ -1,17 +1,21 @@
 :root .light-mode {
     --first-background-color: #c9cdb9;
     --first-font-color: #5b352c;
+    --scrollbar-color: #978478;
 }
 :root .dark-mode {
     --first-background-color:  #161311;
     --first-font-color:  #d3d3d3;
+    --scrollbar-color:  #38312c;
+
 }
 
 *::-webkit-scrollbar{
     background-color: var(--first-background-color);
+    width: 8px;
 }
 *::-webkit-scrollbar-thumb{
-    background: rgba(0, 0, 0, 0.2);
+    background: var(--scrollbar-color);
 
     border-radius: 100px;
 }
