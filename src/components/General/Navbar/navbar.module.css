@@ -1,19 +1,19 @@
+#header {
+    top: 0;
+    position: sticky;
+    width: 100%;
+}
+
 #navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
 
-    top: 0;
-    position: sticky;
-
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
     backdrop-filter: blur(10px);
     background-color: rgba(0, 0, 0, 0.2);
-
     border-radius: 10px;
 
-    width: 100%;
-
-    text-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
 }
 
 #navbar-logo {
@@ -21,6 +21,7 @@
     height: 50px;
     filter: grayscale(100%);
     padding-right: 16px;
+    display: flex;
 }
 
 #navbar-list {
@@ -29,4 +30,77 @@
     margin: 0;
     padding: 0;
     gap: 32px;
+    align-items: center;
+    justify-content: center;
+}
+
+.mobileMenu {
+    cursor: pointer;
+    display: none;
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    z-index: 10;
+}
+
+.mobileMenu div {
+    width: 28px;
+    height: 2px;
+    background-color: #fff;
+    margin: 7px;
+}
+
+.darkModeButton {
+    margin-right: 10px;
+}
+
+@media screen and (max-width: 800px) {
+    #header {
+        margin: 0;
+        padding: 0;
+        position: absolute;
+        top: 0;
+        right: 0
+    }
+    
+    #navbar {
+        display: none;
+        position: absolute;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+
+        width: 45vw;
+        height: 50vh;
+
+        margin: 0;
+        padding: 15px;
+
+        right: 0;
+        top: 0;
+
+        text-shadow: 0 0 2px rgba(0, 0, 0, 0.4);
+        backdrop-filter: blur(10px);
+        background-color: rgba(0, 0, 0, 0.4);
+    }
+
+    #navbar-list {
+        flex-direction: column;
+        align-items: center;
+        gap: 32px
+    }
+
+    #navbar-logo, .darkModeButton {
+        padding: 0;
+        margin: 0
+    }
+
+    .mobileMenu {
+        display: block
+    }
+}
+
+#navbar.active {
+    display: flex;
+    visibility: visible;
 }

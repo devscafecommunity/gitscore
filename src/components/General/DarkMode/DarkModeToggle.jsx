@@ -9,10 +9,11 @@ import Switch from "react-switch";
 // Styles
 import style from "./DarkMode.module.css"
 
-
 const DarkModeToggle = () => {
     const darkMode = useDarkMode(true);
+
     return (
+        
         <Switch 
             checked={darkMode.value}
             onChange={darkMode.toggle}

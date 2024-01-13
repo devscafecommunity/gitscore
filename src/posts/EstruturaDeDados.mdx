@@ -89,13 +89,16 @@ Imagina-se uma pilha de pratos, onde o ultimo prato a ser colocado é o primeiro
 #include <stdio.h>
 #include <stdlib.h>
 #define MAX 10
+
 typedef struct{
     int topo;
     int vet[MAX];
 }pilha;
+
 void inicializa(pilha *p){
     p->topo = -1;
 }
+
 void push(pilha *p, int x){
     if(cheia(p)){
         printf("Pilha cheia\n");
@@ -104,6 +107,7 @@ void push(pilha *p, int x){
     p->topo++;
     p->vet[p->topo] = x;
 }
+
 int pop(pilha *p){
     if(vazia(p)){
         printf("Pilha vazia\n");
@@ -150,15 +154,18 @@ Imagina-se uma fila de pessoas, onde a primeira pessoa a entrar é a primeira a 
 #include <stdio.h>
 #include <stdlib.h>
 #define MAX 10
+
 typedef struct{
     int inicio;
     int fim;
     int vet[MAX];
 }fila;
+
 void inicializa(fila *f){
     f->inicio = 0;
     f->fim = 0;
-}
+} 
+
 void enqueue(fila *f, int x){
     if(cheia(f)){
         printf("Fila cheia\n");
@@ -167,6 +174,7 @@ void enqueue(fila *f, int x){
     f->vet[f->fim] = x;
     f->fim++;
 }
+
 int dequeue(fila *f){
     if(vazia(f)){
         printf("Fila vazia\n");
@@ -212,22 +220,27 @@ Listas tem como fundamento duas operações basicas:
 ```c
 #include <stdio.h>
 #include <stdlib.h>
+
 typedef struct no{
     int dado;
     struct no *prox;
 }no;
+
 typedef struct{
     no *inicio;
 }lista;
+
 void inicializa(lista *l){
     l->inicio = NULL;
 }
+
 void insere(lista *l, int x){
     no *novo = (no*)malloc(sizeof(no));
     novo->dado = x;
     novo->prox = l->inicio;
     l->inicio = novo;
 }
+
 void remove(lista *l, int x){
     no *aux = l->inicio;
     no *ant = NULL;

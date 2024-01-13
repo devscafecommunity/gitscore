@@ -9,9 +9,7 @@ import Navbar from '../components/General/Navbar/Navbar';
 // CSS
 import '../styles/body.css';
 
-
 export default class MyApp extends App {
-
     render() {
         const { Component, pageProps } = this.props;
         return (

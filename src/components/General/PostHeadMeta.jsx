@@ -20,6 +20,7 @@ export default function PostHeadMeta({ frontMatter, slug }) {
             <meta property="twitter:title" content={frontMatter.title} />
             <meta property="twitter:description" content={frontMatter.description} />
             <meta property="twitter:image" content={preview} />
+            {/* <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/styles/github-dark.min.css"></link> */}
         </Head>
     );
 }

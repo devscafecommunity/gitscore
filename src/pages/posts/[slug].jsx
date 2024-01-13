@@ -5,6 +5,7 @@ import path from 'path'
 import { postFilePaths, POSTS_PATH } from '../../utils/mdxUtils'
 
 
+
 // Components
 import PostHeader from '../../components/Posts/PostHeader'
 import PostRender from '../../components/Posts/PostRender'
@@ -31,7 +32,6 @@ export const getStaticProps = async ({ params }) => {
   const { content, data } = matter(source)
 
   const mdxSource = await serialize(content, {
-    // Optionally pass remark/rehype plugins
     mdxOptions: {
       remarkPlugins: [],
       rehypePlugins: [],

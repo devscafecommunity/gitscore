@@ -1,3 +1,10 @@
 .flex {
     padding-left: 30px; 
 }
+
+
+@media screen and (max-width: 800px) {
+    .flex {
+        padding-left: 0;
+    }
+}
