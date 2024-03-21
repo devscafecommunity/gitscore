@@ -3,8 +3,8 @@
   text-decoration: none !important;
 }
 .post{
-  background-color: #e7ebda;
-  color: #422721;
+  background-color: var( --first-background-color);
+  color: var(--first-font-color);
 
   padding: 16px;
   margin: 16px;
