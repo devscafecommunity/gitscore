@@ -26,11 +26,6 @@ export default class MyApp extends App {
                 <Head>
                   <title>{meta.title}</title>
                   <link rel="icon" href={meta.favicon} />
-                  <meta name="description" content={meta.description} />
-                  <meta property="og:title" content={meta.title} />
-                  <meta property="og:description" content={meta.description} />
-                  <meta property="og:image" content={meta.image} />
-                  <meta name="theme-color" content={meta.color} />
                 </Head>
                 <Navbar />
                 <span style={{margin: "10",}}></span>
