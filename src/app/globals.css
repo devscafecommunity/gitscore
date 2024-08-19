@@ -1,0 +1,20 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  background-color: #c9cdb9;
+
+  /* Base modifyers */
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+
+  /* Cente content */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  /* Margin */
+  margin-top: 10%;
+}
