@@ -87,6 +87,7 @@ export default function AuthorPage() {
                         authorTwitter={authorData.authorTwitter}
                         authorInstagram={authorData.authorInstagram}
                         authorEmail={authorData.authorEmail}
+                        posts={authorData.authorPosts}
                     />
                 ) : (
                     <HeaderAuthorEmpty />

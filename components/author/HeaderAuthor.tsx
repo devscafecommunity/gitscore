@@ -37,6 +37,7 @@ export function HeaderAuthor({
   authorTwitter,
   authorInstagram,
   authorEmail,
+  posts,
 }: {
   authorBanner: string;
   authorProfilePicture: string;
@@ -47,7 +48,9 @@ export function HeaderAuthor({
   authorTwitter: string;
   authorInstagram: string;
   authorEmail: string;
+  posts: any[];
 }) {
+  const postCount = posts.length;
   return (
     <>
       <div className="flex flex-col items-center justify-center py-2 gap-4 p-6 max-w-7xl mx-auto">
@@ -81,7 +84,7 @@ export function HeaderAuthor({
                     <motion.div className="bg-white text-white rounded-lg p-2"
                         whileHover={{ scale: 1.5, rotate: 23 }}
                     >
-                      <Link href={authorWebsite}>
+                      <Link href={authorWebsite} target="_blank">
                           <FaGlobe size={30} className="text-foreground" />
                       </Link>
                     </motion.div>
@@ -90,7 +93,7 @@ export function HeaderAuthor({
                     <motion.div className="bg-white text-white rounded-lg p-2"
                         whileHover={{ scale: 1.5, rotate: 23 }}
                     >
-                      <Link href={authorGithub}>
+                      <Link href={authorGithub} target="_blank">
                           <FaGithub size={30} className="text-foreground" />
                       </Link>
                     </motion.div>
@@ -99,7 +102,7 @@ export function HeaderAuthor({
                     <motion.div className="bg-white text-white rounded-lg p-2"
                         whileHover={{ scale: 1.5, rotate: 23 }}
                     >
-                      <Link href={authorTwitter}>
+                      <Link href={authorTwitter} target="_blank">
                           <FaTwitter size={30} className="text-foreground" />
                       </Link>
                     </motion.div>
@@ -108,7 +111,7 @@ export function HeaderAuthor({
                     <motion.div className="bg-white text-white rounded-lg p-2"
                         whileHover={{ scale: 1.5, rotate: 23 }}
                     >
-                      <Link href={authorInstagram}>
+                      <Link href={authorInstagram} target="_blank">
                           <FaInstagram size={30} className="text-foreground" />
                       </Link>
                     </motion.div>
@@ -117,7 +120,7 @@ export function HeaderAuthor({
                     <motion.div className="bg-white text-white rounded-lg p-2"
                         whileHover={{ scale: 1.5, rotate: 23 }}
                     >
-                      <Link href={`mailto:${authorEmail}`}>
+                      <Link href={`mailto:${authorEmail}`} target="_blank">
                           <FaEnvelope size={30} className="text-foreground" />
                       </Link>
                     </motion.div>
@@ -126,7 +129,7 @@ export function HeaderAuthor({
         </div>
     </div>
     <div className="flex flex-col items-center justify-center gap-4 p-6 rounded-lg bg-white shadow-lg max-w-7xl mx-auto m-6">
-          <p className="text-lg text-foreground">{authorBio}</p>
+          <p className="text-lg text-foreground">{authorBio}</p> <p className="text-lg text-foreground">Total de posts  {postCount}</p>
     </div>
     </>
   );
