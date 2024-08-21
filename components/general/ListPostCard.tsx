@@ -23,38 +23,6 @@ function ListPostCard(
         };
     }
 ) {
-    console.log(JSON.stringify(post, null, 2));
-
-/*
-{
-  "title": "Clean Code com Princípios S.O.L.I.D",
-  "tags": [
-    {
-      "id": "9e47d657-4286-4f8d-874b-3f80cf524882",
-      "name": "S.O.L.I.D",
-      "color": "brown"
-    },
-    {
-      "id": "f07d377f-d2cc-44cb-8365-e6daa4c398d4",
-      "name": "Clean code",
-      "color": "purple"
-    },
-    {
-      "id": "90c03c31-0ec5-442a-950c-b9b7168913b9",
-      "name": "Boas Praticas",
-      "color": "orange"
-    }
-  ],
-  "description": "Quando se trata de escrever código de qualidade, existem várias diretrizes e princípios que podem nos ajudar a alcançar esse objetivo. ",
-  "cover": "https://i.imgur.com/3ToN0IJ.png",
-  "createdDate": "2024-08-09T19:40:00.000Z",
-  "lastEdited": "2024-08-16T20:12:00.000Z",
-  "url": "/posts/conceitos-solid-cleancode",
-  "publicpost": true,
-  "slug": "conceitos-solid-cleancode"
-}
-*/
-
     return (
         <motion.div 
             className='flex flex-row items-center justify-left w-full h-full gap-6 bg-white shadow-md rounded-2xl p-6 p-8'
@@ -74,8 +42,8 @@ function ListPostCard(
             <div className='flex flex-col items-left justify-center w-2/3 h-full gap-2 p-4'>
                 <h1 className='text-md font-bold'>{post.title}</h1>
                 <div className='flex flex-row items-center justify-left gap-2'>
-                    {post.tags.map((tag) => (
-                        <div key={tag.id} className={`text-white rounded-lg p-1`} style={{ backgroundColor: tag.color }}>
+                    {post.tags.map((tag, index) => (
+                        <div key={index} className={`text-white rounded-lg p-1`} style={{ backgroundColor: tag.color }}>
                             <p className='text-xs'>{tag.name}</p>
                         </div>
                     ))}

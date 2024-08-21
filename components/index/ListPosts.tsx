@@ -19,7 +19,7 @@ export default async function ListPosts() {
 
  // Tags
   return (
-    <div className="flex flex-row flex-wrap gap-6 p-6">
+    <div className="flex flex-row flex-col gap-6 p-6">
       {posts.length > 0 ? (
         posts.map((post, index) => {
           return (
