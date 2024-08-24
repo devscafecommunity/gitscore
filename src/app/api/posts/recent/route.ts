@@ -30,10 +30,7 @@ e retorna basicamente o mesmo objeto, mas ordenado por ultima edição.
 export async function GET() {
     try {
         const posts = await getPosts();
-        const sortedPosts = posts.sort((a, b) => {
-            return new Date(b.lastEdited).getTime() - new Date(a.lastEdited).getTime();
-        });
-        return NextResponse.json(sortedPosts, { status: 200 });
+        return NextResponse.json(posts);
     }
     catch (error) {
         console.error('Error fetching posts:', error);

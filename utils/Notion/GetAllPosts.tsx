@@ -94,7 +94,6 @@ async function getPosts() {
     }
   });
 
-
   const postsData = postList.map((post) => {
       const author = authorList.find((author) => author.email === post.authorMail);
       return {

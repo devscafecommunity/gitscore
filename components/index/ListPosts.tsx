@@ -11,7 +11,7 @@ export default async function ListPosts() {
   const posts = (await getAllPosts()) as any[];
   const authors = (await getAllAuthors()) as any[];
 
-  function getAuthorById(authorId: string) {
+   function getAuthorById(authorId: string) {
     return authors.find(
       (author) => author.properties["Author"].people[0].id === authorId
     );

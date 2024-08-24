@@ -29,7 +29,7 @@ export default function Header() {
                 Pesquisar
             </button>
         </Link>
-        <Link href="/favorites">
+        <Link href="/recent">
             <button className="text-blue font-bold py-2 px-4 rounded">
                 Novos
             </button>

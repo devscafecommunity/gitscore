@@ -26,7 +26,7 @@ function ListPostCard(
     return (
         <motion.div 
             className='flex flex-row items-center justify-left w-full h-full gap-6 bg-white shadow-md rounded-2xl p-6 p-8'
-            whileHover={{ scale: 1.05 }}
+            whileHover={{ scale: 1.05, transition: { duration: 0.1 }, x: -40}}
             whileTap={{ scale: 0.95 }}
             onClick={() => window.location.href = post.url}
         >
@@ -41,13 +41,6 @@ function ListPostCard(
             </div>
             <div className='flex flex-col items-left justify-center w-2/3 h-full gap-2 p-4'>
                 <h1 className='text-md font-bold'>{post.title}</h1>
-                <div className='flex flex-row items-center justify-left gap-2'>
-                    {post.tags.map((tag, index) => (
-                        <div key={index} className={`text-white rounded-lg p-1`} style={{ backgroundColor: tag.color }}>
-                            <p className='text-xs'>{tag.name}</p>
-                        </div>
-                    ))}
-                </div>
                 <p className='text-lg'>{post.description}</p>
             </div>
         </motion.div>
