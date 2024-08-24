@@ -1,5 +1,6 @@
 import Image from "next/image";
 import SearchContent from "../../../components/search/SearchContent";
+import RssBtn from "../../../components/general/RssBtn";
 
 export default function Search() {
     return (
@@ -10,6 +11,7 @@ export default function Search() {
                 </h1>
             </div>
             <SearchContent />
+            <RssBtn />
         </div>
     );
 }

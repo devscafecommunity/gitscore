@@ -54,8 +54,8 @@ export function HeaderAuthor({
   return (
     <>
       <div className="flex flex-col items-center justify-center py-2 gap-4 p-6 max-w-7xl mx-auto">
-        <div className="w-full flex flex-col items-center justify-center rounded-lg shadow-lg mt-5 mb-5
-        relative bg-white">
+        <div className="w-full flex flex-col items-center justify-center mt-5 mb-5
+        relative">
             <Image
                 src={authorBanner}
                 alt="Banner"

@@ -1,5 +1,5 @@
 import ListPostsNewer from "../../../components/recent/ListPostsNewer";
-
+import RssBtn from "../../../components/general/RssBtn";
 
 export default function Recent() {
     return (
@@ -10,6 +10,7 @@ export default function Recent() {
                 </h1>
             </div>
             <ListPostsNewer />
+            <RssBtn />
         </div>
     );
 }

@@ -4,6 +4,7 @@ import Head from "next/head";
 import ListPosts from "../../components/index/ListPosts";
 import Header from "../../components/general/Header";
 import type { Metadata } from 'next';
+import RssBtn from "../../components/general/RssBtn";
 
 export const metadata: Metadata = 
 {
@@ -20,6 +21,7 @@ export default function Home() {
       <div className="flex flex-col items-center justify-center py-2 gap-4 p-6">
         <ListPosts />
       </div>
+      <RssBtn />
     </div>
   );
 }
