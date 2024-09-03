@@ -45,29 +45,44 @@ async function getPosts() {
   const posts = await getAllPosts() as any[];
   const authors = await getAllAuthors() as any[];
 
-  const postListRaw = posts.map((post) => {
-      if (!post.properties.Slug.rich_text[0].text.content || !post.properties.Title.title[0].text.content) {
-          return {
-              public: false,
-          }
-      }
+  /*
+    const postListRaw = posts.map((post) => {
+    return {
+      id: post.id,
+      title: post.properties.Title.title[0].text.content,
+      tags: post.properties.Tags.multi_select.map((tag: any) => tag.name),
+      description: post.properties.Description.rich_text[0].text.content,
+      cover: post.properties.Cover.files[0].external.url,
+      authorMail: post.properties.Author.people[0].person.email,
+      createdDate: post.properties.CreatedDate.created_time,
+      lastEdited: post.properties.LastEdited.last_edited_time,
+      url: /posts/${post.properties.Slug.rich_text[0].text.content},
+      public: post.properties.Public.checkbox,
+      slug: post.properties.Slug.rich_text[0].text.content,
+    }
+  });
+  */
 
-      return {
-          id: post.id,
-          title: post.properties.Title.title[0].text.content,
-          tags: post.properties.Tags.multi_select.map(( tag: any ) => tag.name),
-          description: post.properties.Description.rich_text[0].text.content,
-          cover: post.properties.Cover.files[0].external.url,
-          authorMail: post.properties.Author.people[0].person.email,
-          createdDate: post.properties.CreatedDate.created_time,
-          lastEdited: post.properties.LastEdited.last_edited_time,
-          public: post.properties.Public.checkbox,
-          slug: post.properties.Slug.rich_text[0].text,
-          url: "/posts/" + post.properties.Slug.rich_text[0].text.content,
-      }
+
+  const postListRaw = posts
+  .filter((post) => post.properties.Public.checkbox == true) // Filter posts where Public checkbox is true
+  .map((post) => {
+    return {
+      id: post.id,
+      title: post.properties.Title.title[0].text.content,
+      tags: post.properties.Tags.multi_select.map((tag: any) => tag.name),
+      description: post.properties.Description.rich_text[0].text.content,
+      cover: post.properties.Cover.files[0].external.url,
+      authorMail: post.properties.Author.people[0].person.email,
+      createdDate: post.properties.CreatedDate.created_time,
+      lastEdited: post.properties.LastEdited.last_edited_time,
+      url: `/posts/${post.properties.Slug.rich_text[0].text.content}`,
+      public: post.properties.Public.checkbox,
+      slug: post.properties.Slug.rich_text[0].text.content,
+    };
   });
 
-  const postList = postListRaw.filter((post) => post.public === true);
+  const postList = postListRaw.filter((post) => post.public);
 
   const authorList = authors.map((author) => {
     if (
@@ -89,7 +104,7 @@ async function getPosts() {
         name: author.properties.Name.title[0].text.content || "Author Name",
         avatar: author.properties["Author Profile Picture"].files[0].external.url || "https://blog.devscafe.pt/assets/logo.png",
         email: author.properties.Author.people[0].person.email || "",
-        individualId: author.properties.AuthorIndividualID.rich_text[0].text.content || "author"
+        individualId: author.properties.AuthorIndividualID.rich_text[0].text.content || "author",
       }
     }
   });

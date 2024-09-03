@@ -89,7 +89,9 @@ export const getAuthorByAuthorIndividualID = cache((authorIndividualID: string) 
 export const getAllPosts = cache(() => {
   return notionClient.databases.query({
     database_id: process.env.NOTION_DB_POST_ID!,
-  }).then((res) => res.results);
+  }).then((res) => {
+    return res.results;
+  });
 });
 
 export const getAllAuthors = cache(() => {
