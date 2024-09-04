@@ -128,7 +128,7 @@ export default function SearchContent() {
 
     return (
         <div className='flex flex-col items-center justify-center w-full h-full gap-6
-        max-w-xl
+        max-w-2xl
         '>
             <div className='flex flex-col items-center justify-center w-full h-full'>
                 <input
