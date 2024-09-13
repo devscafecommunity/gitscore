@@ -28,7 +28,9 @@ export default function AuthorPostList(
     { data }: { data: Data }
 ) {
   return (
-    <div className="flex flex-col items-center justify-center gap-4">
+    <div className="flex flex-col items-center justify-center gap-4
+      max-w-2xl
+      ">
       {
         data.posts.length === 0 ? (
           <div>
