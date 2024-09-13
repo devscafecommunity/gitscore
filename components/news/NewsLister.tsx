@@ -45,13 +45,13 @@ Else the user will just get the news based on the default preferences.
 
 // }
 
-interface Preferences {
-  origins: {
-    name: string;
-    times_visited: number;
-  }[];
-  keywords_recurrence: string[];
-}
+// interface Preferences {
+//   origins: {
+//     name: string;
+//     times_visited: number;
+//   }[];
+//   keywords_recurrence: string[];
+// }
 
 interface News {
   name: string;
@@ -76,9 +76,9 @@ export default function NewsLister() {
     });
   }
 
-  const [preferences, setPreferences] = useState<Preferences | undefined>(
-    undefined
-  );
+  // const [preferences, setPreferences] = useState<Preferences | undefined>(
+  //   undefined
+  // );
   const [news, setNews] = useState<News[] | undefined>(undefined);
 
   // Get news whitout preferences: http://localhost:3000/api/news/getnopreferences
@@ -104,24 +104,24 @@ export default function NewsLister() {
           setNews(data);
         });
     }
-  }, []);
+  }, [ cookies.preferences ]);
 
-  function setPreferenceOrigin(origin: string, times_visited: number) {
-    let preferences = cookies.preferences;
-    if (preferences === undefined) {
-      preferences = {
-        origins: [],
-        keywords_recurrence: [],
-      };
-      setCookie("preferences", preferences);
-    } else {
-      preferences.origins.push({
-        name: origin,
-        times_visited: times_visited,
-      });
-      setCookie("preferences", preferences);
-    }
-  }
+  // function setPreferenceOrigin(origin: string, times_visited: number) {
+  //   let preferences = cookies.preferences;
+  //   if (preferences === undefined) {
+  //     preferences = {
+  //       origins: [],
+  //       keywords_recurrence: [],
+  //     };
+  //     setCookie("preferences", preferences);
+  //   } else {
+  //     preferences.origins.push({
+  //       name: origin,
+  //       times_visited: times_visited,
+  //     });
+  //     setCookie("preferences", preferences);
+  //   }
+  // }
 
   function incrementPreferenceOrigin(origin: string) {
     let preferences = cookies.preferences;
@@ -147,34 +147,34 @@ export default function NewsLister() {
     }
   }
 
-  function setPreferenceKeywords(keywords: string[]) {
-    let preferences = cookies.preferences;
-    if (preferences === undefined) {
-      preferences = {
-        origins: [],
-        keywords_recurrence: [],
-      };
-      setCookie("preferences", preferences);
-    } else {
-      preferences.keywords_recurrence = keywords;
-      setCookie("preferences", preferences);
-    }
-  }
+  // function setPreferenceKeywords(keywords: string[]) {
+  //   let preferences = cookies.preferences;
+  //   if (preferences === undefined) {
+  //     preferences = {
+  //       origins: [],
+  //       keywords_recurrence: [],
+  //     };
+  //     setCookie("preferences", preferences);
+  //   } else {
+  //     preferences.keywords_recurrence = keywords;
+  //     setCookie("preferences", preferences);
+  //   }
+  // }
 
-  function appendPreferenceKeywords(keywords: string[]) {
-    let preferences = cookies.preferences;
-    if (preferences === undefined) {
-      preferences = {
-        origins: [],
-        keywords_recurrence: [],
-      };
-      setCookie("preferences", preferences);
-    } else {
-      preferences.keywords_recurrence =
-        preferences.keywords_recurrence.concat(keywords);
-      setCookie("preferences", preferences);
-    }
-  }
+  // function appendPreferenceKeywords(keywords: string[]) {
+  //   let preferences = cookies.preferences;
+  //   if (preferences === undefined) {
+  //     preferences = {
+  //       origins: [],
+  //       keywords_recurrence: [],
+  //     };
+  //     setCookie("preferences", preferences);
+  //   } else {
+  //     preferences.keywords_recurrence =
+  //       preferences.keywords_recurrence.concat(keywords);
+  //     setCookie("preferences", preferences);
+  //   }
+  // }
   /*
     [
   {
@@ -262,6 +262,7 @@ export default function NewsLister() {
   }
   
   function handleClick(item: News, origin: string) {
+    incrementPreferenceOrigin(origin);
     window.open(item.items[0].link, "_blank");
   }
 

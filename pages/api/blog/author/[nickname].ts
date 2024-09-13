@@ -1,4 +1,4 @@
-import { getAuthorPosts, getAuthorDataSimplifyedByNickname, getAuthorByNickname } from "@/utils/Blog";
+import { getAuthorPosts, getAuthorDataSimplifyedByNickname } from "@/utils/Blog";
 import { NextApiRequest, NextApiResponse } from "next";
 
 // export default async (req: NextApiRequest, res: NextApiResponse) => {

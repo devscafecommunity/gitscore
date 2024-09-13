@@ -149,33 +149,33 @@ export default function EventHeader() {
     percentage: number
   }
   */
-  function getEventCostTracking(events: EventData[]) {
-    const total = totalEvents(events);
-    let totalCost = 0;
-    for (let i = 0; i < total; i++) {
-      totalCost += events[i].total_cost;
-    }
-    const averageCost = totalCost / total;
-    const lastCost = events[total - 1].total_cost;
-    const diff = lastCost - averageCost;
-    const percentage = (diff / averageCost) * 100;
-    if (percentage > 0) {
-      return {
-        status: "gain",
-        percentage,
-      };
-    } else if (percentage < 0) {
-      return {
-        status: "loss",
-        percentage: Math.abs(percentage),
-      };
-    } else {
-      return {
-        status: "neutral",
-        percentage: 0,
-      };
-    }
-  }
+  // function getEventCostTracking(events: EventData[]) {
+  //   const total = totalEvents(events);
+  //   let totalCost = 0;
+  //   for (let i = 0; i < total; i++) {
+  //     totalCost += events[i].total_cost;
+  //   }
+  //   const averageCost = totalCost / total;
+  //   const lastCost = events[total - 1].total_cost;
+  //   const diff = lastCost - averageCost;
+  //   const percentage = (diff / averageCost) * 100;
+  //   if (percentage > 0) {
+  //     return {
+  //       status: "gain",
+  //       percentage,
+  //     };
+  //   } else if (percentage < 0) {
+  //     return {
+  //       status: "loss",
+  //       percentage: Math.abs(percentage),
+  //     };
+  //   } else {
+  //     return {
+  //       status: "neutral",
+  //       percentage: 0,
+  //     };
+  //   }
+  // }
 
   return (
     <motion.div

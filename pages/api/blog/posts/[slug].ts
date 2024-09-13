@@ -1,4 +1,4 @@
-import { getPostContent, getPostDataSimplifiedBySlug, getPostBySlug } from "@/utils/Blog";
+import { getPostContent, getPostDataSimplifiedBySlug } from "@/utils/Blog";
 import { NextApiRequest, NextApiResponse } from "next";
 
 const getPost = async (req: NextApiRequest, res: NextApiResponse) => {
