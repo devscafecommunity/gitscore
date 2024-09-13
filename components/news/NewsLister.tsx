@@ -7,6 +7,8 @@ import { useCookies } from "react-cookie";
 
 import { Text, Heading } from "@chakra-ui/react";
 
+import Link from "next/link";
+
 import "@fontsource/jetbrains-mono";
 
 /*
@@ -92,6 +94,7 @@ export default function NewsLister() {
           setNews(data);
         });
     } else {
+      console.log(JSON.stringify(cookies.preferences, null, 2));
       fetch("/api/news/getpreferences", {
         method: "POST",
         headers: {
@@ -161,20 +164,20 @@ export default function NewsLister() {
   //   }
   // }
 
-  // function appendPreferenceKeywords(keywords: string[]) {
-  //   let preferences = cookies.preferences;
-  //   if (preferences === undefined) {
-  //     preferences = {
-  //       origins: [],
-  //       keywords_recurrence: [],
-  //     };
-  //     setCookie("preferences", preferences);
-  //   } else {
-  //     preferences.keywords_recurrence =
-  //       preferences.keywords_recurrence.concat(keywords);
-  //     setCookie("preferences", preferences);
-  //   }
-  // }
+  function appendPreferenceKeywords(keywords: string[]) {
+    let preferences = cookies.preferences;
+    if (preferences === undefined) {
+      preferences = {
+        origins: [],
+        keywords_recurrence: [],
+      };
+      setCookie("preferences", preferences);
+    } else {
+      preferences.keywords_recurrence =
+        preferences.keywords_recurrence.concat(keywords);
+      setCookie("preferences", preferences);
+    }
+  }
   /*
     [
   {
@@ -263,7 +266,7 @@ export default function NewsLister() {
   
   function handleClick(item: News, origin: string) {
     incrementPreferenceOrigin(origin);
-    window.open(item.items[0].link, "_blank");
+    appendPreferenceKeywords(item.items[0].tags);
   }
 
   return (
@@ -278,25 +281,25 @@ export default function NewsLister() {
           {news &&
             rankingNews(getSideNews(news)).map((n, index) => (
               <div key={index} className="px-2 pb-4">
-                <div className="flex flex-col gap-4 justify-center p-2 bg-slate-500 rounded-sm mb-2 mt-2">
-                  <Heading fontFamily="JetBrains Mono" className="text-lg">
+                <div className="flex flex-col gap-4 justify-center p-2 bg-slate-500 rounded-md mb-2 mt-2">
+                  <Heading fontFamily="JetBrains Mono" className="text-lg text-center">
                     {n.name}
                   </Heading>
                 </div>
-                <ul>
+                  <div className="flex flex-col gap-4 justify-center p-2 rounded-sm mb-2 mt-2">
                   {n.items.map((i, index) => (
-                    <li
-                      key={index}
-                      className="flex flex-col gap-4 justify-center p-2 hover:bg-slate-500 transition duration-200 ease-in-out rounded-lg"
-                    >
-                      <Text fontFamily="JetBrains Mono" className="text-sm">
-                        <a href={i.link} onClick={() => handleClick(n, n.name)}>
+                    <div className="flex flex-col gap-4 justify-center p-2 hover:bg-slate-500 transition duration-200 ease-in-out rounded-lg" key={index}>
+                      <Link href={i.link} target="_blank" passHref onClick={() => handleClick(
+                        n,
+                        n.name
+                      )}>
+                        <Text style={{ cursor: "pointer" }} fontFamily="JetBrains Mono" className="text-sm">
                           {i.title}
-                        </a>
-                      </Text>
-                    </li>
+                        </Text>
+                      </Link>
+                    </div>                        
                   ))}
-                </ul>
+                  </div>
               </div>
             ))}
         </GridItem>
@@ -305,27 +308,25 @@ export default function NewsLister() {
             rankingNews(getCenterNews(news)).map((n, index) => (
               <div key={index} className="px-2">
                 {/* <Heading  fontFamily="JetBrains Mono">{n.name}</Heading  fontFamily="JetBrains Mono"> */}
-                <div className="flex flex-col gap-4 justify-center p-2 bg-slate-500 rounded-sm mb-2 mt-2">
-                  <Heading fontFamily="JetBrains Mono" className="text-lg">
+                <div className="flex flex-col gap-4 justify-center p-2 bg-slate-500 rounded-md mb-2 mt-2">
+                  <Heading fontFamily="JetBrains Mono" className="text-lg text-center">
                     {n.name}
                   </Heading>
                 </div>
-                <ul>
+                <div className="flex flex-col gap-4 justify-center p-2 rounded-sm mb-2 mt-2">
                   {n.items.map((i, index) => (
-                    <li
-                      key={index}
-                      className="flex flex-col gap-4 justify-center p-2 hover:bg-slate-500 transition duration-200 ease-in-out rounded-lg"
-                    >
-                      <Text
-                        fontFamily="JetBrains Mono"
-                        className="text-sm"
-                        onClick={() => handleClick(n, n.name)}
-                      >
-                        {i.title}
-                      </Text>
-                    </li>
+                    <div className="flex flex-col gap-4 justify-center p-2 hover:bg-slate-500 transition duration-200 ease-in-out rounded-lg" key={index}>
+                      <Link href={i.link} target="_blank" passHref onClick={() => handleClick(
+                        n,
+                        n.name
+                      )}>
+                        <Text style={{ cursor: "pointer" }} fontFamily="JetBrains Mono" className="text-sm">
+                          {i.title}
+                        </Text>
+                      </Link>
+                    </div>                        
                   ))}
-                </ul>
+                  </div>
               </div>
             ))}
         </GridItem>

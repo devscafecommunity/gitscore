@@ -122,8 +122,52 @@ const feeds = [
         url: "https://medium.com/feed/better-programming",
         partner: false,
         priority: ["title"],
-    }
+    },
+    {
+        name: "Hacker News",
+        url: "https://hackernewsrss.com/feed.xml",
+        partner: false,
+        priority: ["title"],
+    },
+    {
+        name: "Bug Bounty",
+        url: "https://rss.packetstormsecurity.com/files/tags/bug_bounty/",
+        partner: false,
+        priority: ["title"],
+    },
+    {
+        name: "Cacm ACM - Architecture and Hardware",
+        url: "https://cacm-acm-org-preprod.go-vip.net/category/architecture-and-hardware/feed",
+        partner: false,
+        priority: ["title"],
+    },
+    {
+        name: "Cacm ACM - Software Engineering",
+        url: "https://cacm-acm-org-preprod.go-vip.net/category/software-engineering-and-programming-languages/feed",
+        partner: false,
+        priority: ["title"],
+    },
+    {
+        name: "Anonymous News",
+        url: "https://rss.packetstormsecurity.com/news/tags/anonymous/",
+        partner: false,
+        priority: ["title"],
+    },
+    {
+        name: "Vulnerabilities",
+        url: "https://rss.packetstormsecurity.com/files/tags/vulnerability/",
+        partner: false,
+        priority: ["title"],
+    },
+    // {
+    //     name: "Cisco",
+    //     url: "https://rss.packetstormsecurity.com/news/tags/cisco/",
+    //     partner: false,
+    //     priority: ["title"],
+    // }
 ];
+
+// https://packetstormsecurity.com/feeds/
 
 function fetchData() {
     const parser = new Parser();
