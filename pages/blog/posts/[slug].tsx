@@ -91,7 +91,6 @@ export default function PostPage({ post }: { post: PostData }) {
   }
 
   setReaded(post.id);
-
   return (
     <div className="flex flex-col items-center justify-center p-4">
       <Head>
