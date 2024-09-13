@@ -8,6 +8,7 @@ import { ChakraProvider } from "@chakra-ui/react";
 // Global components
 import Navbar from "@/components/general/Navbar";
 import CookiesAlert from "@/components/general/CookiesAlert";
+import CustomCursor from "@/components/general/CustomCursor";
 
 // Head
 import Head from "next/head";
@@ -26,6 +27,7 @@ export default function App({ Component, pageProps }: AppProps) {
             <link rel="icon" href={data.icon} />
             <meta name="viewport" content="width=device-width, initial-scale=1" />
           </Head>
+          <CustomCursor />
           <CookiesAlert />
           <Navbar />
           <Component {...pageProps} />
