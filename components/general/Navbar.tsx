@@ -1,70 +1,155 @@
-"use client";
-
-// components/general/Navbar.tsx
-import React from "react";
-import Link from "next/link";
-import Image from "next/image";
-import { FaSearch, FaStar } from "react-icons/fa";
 import { motion } from "framer-motion";
-import { useState, useEffect } from "react";
+import Link from "next/link";
+import React from "react";
 
-import { MdKeyboardArrowDown } from "react-icons/md";
+// Icons - Lupe, Home and Star Fa Icons
+import { FaCalendar, FaNewspaper } from "react-icons/fa";
+import { IoDocumentTextOutline } from "react-icons/io5";
+// Theme icons
+import { FaMoon, FaSun } from "react-icons/fa";
 
-const routes = [
-  {
-    name: "Home",
-    route: "/",
-  },
-  {
-    name: "Search",
-    route: "/search",
-  },
-  {
-    name: "Recent",
-    route: "/recent",
-  },
-];
+// Function for theme change chacra-ui
+import { useColorMode } from "@chakra-ui/react";
 
-export default function Navbar() {
-  // Fixed on bottom
-  // the nav is outscreen but when hover it will show: whileHover={{ scale: 1.1 }}
+// Components
+import { Image, Tooltip } from "@chakra-ui/react";
+
+function ThemeSwitch() {
+  const { colorMode, toggleColorMode } = useColorMode();
+  const theme = colorMode === "light" ? "bg-white" : "bg-gray-800";
+
   return (
     <motion.div
-      initial={{ opacity: 0, top: -20, rotate: 5 }}
+      initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      transition={{ duration: 0.4 }}
-      whileHover={{ top: 10, rotate: 0 }}
-      style={{ position: "fixed" }}
-      className="flex flex-col bg-white h-16 p-4 bg-opacity-50 backdrop-filter backdrop-blur-lg rounded-lg shadow-md z-50"
+      transition={{ delay: 0.2 }}
+      whileHover={{ scale: 1.1, rotate: 20, transition: { duration: 0.3 } }}
+      className="cursor-pointer"
     >
-      <div className="flex flex-row gap-6 w-full h-full items-center">
-        <div className="flex flex-row items-center justify-center gap-6">
-          <Link href="/">
-            <Image
-              src="/assets/logo.png"
-              alt="logo"
-              width={50}
-              height={50}
-              className="rounded-full"
-            />
-          </Link>
-        </div>
+      <div
+        className={`flex items-center gap-2 bg-white p-2 rounded-full shadow-md ${theme} text-gray-800 p-4`}
+        onClick={toggleColorMode}
+      >
+        {colorMode === "light" ? <FaMoon size={40} /> : <FaSun size={40} />}
+      </div>
+    </motion.div>
+  );
+}
+
+export default function Navbar() {
+  // Theme var for change non chakra-ui components
+  const { colorMode } = useColorMode();
+  const theme = colorMode === "light" ? "bg-white" : "bg-gray-800";
+  const buttonTheme = colorMode === "light" ? "text-gray-800" : "text-white";
+
+  return (
+    <motion.div
+      initial={{ y: -100 }}
+      animate={{ y: 0 }}
+      transition={{ duration: 0.5 }}
+      className={`fixed top-0 left-0 right-0 z-50 flex justify-center items-center p-4 shadow-md ${theme} m-8 rounded-xl bg-opacity-50 backdrop-filter backdrop-blur-xl
+      max-w-lg mx-auto
+      `}
+    >
+      <div className="flex items-center gap-4 text-2xl justify-center">
         <motion.div
-          className="flex flex-row items-center justify-center gap-6 bg-white shadow-md text-white rounded-lg p-2"
-          whileHover={{ scale: 1.5, rotate: 23 }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.2 }}
+          whileHover={{ scale: 1.1, rotate: 20, transition: { duration: 0.3 } }}
+          className="cursor-pointer"
         >
-          <Link href="/search">
-            <FaSearch size={30} className="text-foreground" />
-          </Link>
+          <Tooltip
+            label="Home"
+            aria-label="Home"
+            placement="bottom"
+            className="cursor-pointer z-50"
+          >
+            <div
+              className={`flex items-center gap-2 bg-white p-2 rounded-full shadow-md ${theme} ${buttonTheme} p-4`}
+            >
+              <Link href="/">
+                <Image src="/logo.png" alt="logo" width={50} height={50} />
+              </Link>
+            </div>
+          </Tooltip>
         </motion.div>
         <motion.div
-          className="flex flex-row items-center justify-center gap-6 bg-white shadow-md text-white rounded-lg p-2"
-          whileHover={{ scale: 1.5, rotate: 23 }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.2 }}
+          whileHover={{ scale: 1.1, rotate: 20, transition: { duration: 0.3 } }}
+          className="cursor-pointer"
         >
-          <Link href="/recent">
-            <FaStar size={30} className="text-foreground" />
-          </Link>
+          <Tooltip
+            label="Blog"
+            aria-label="Home"
+            placement="bottom"
+            className="cursor-pointer z-50"
+          >
+            <div
+              className={`flex items-center gap-2 bg-white p-2 rounded-full shadow-md ${theme} ${buttonTheme} p-4`}
+            >
+              <Link href="/blog">
+                <IoDocumentTextOutline
+                  size={40}
+                  className="cursor-pointer text-gray-800"
+                />
+              </Link>
+            </div>
+          </Tooltip>
         </motion.div>
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.2 }}
+          whileHover={{ scale: 1.1, rotate: 20, transition: { duration: 0.3 } }}
+          className="cursor-pointer"
+        >
+          <Tooltip
+            label="Eventos"
+            aria-label="Home"
+            placement="bottom"
+            className="cursor-pointer z-50"
+          >
+            <div
+              className={`flex items-center gap-2 bg-white p-2 rounded-full shadow-md ${theme} ${buttonTheme} p-4`}
+            >
+              <Link href="/events">
+                <FaCalendar
+                  size={40}
+                  className="cursor-pointer text-gray-800"
+                />
+              </Link>
+            </div>
+          </Tooltip>
+        </motion.div>
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.2 }}
+          whileHover={{ scale: 1.1, rotate: 20, transition: { duration: 0.3 } }}
+          className="cursor-pointer"
+        >
+          <Tooltip
+            label="Notícias"
+            aria-label="Home"
+            placement="bottom"
+            className="cursor-pointer z-50"
+          >
+            <div
+              className={`flex items-center gap-2 bg-white p-2 rounded-full shadow-md ${theme} ${buttonTheme} p-4`}
+            >
+              <Link href="/news">
+                <FaNewspaper
+                  size={40}
+                  className="cursor-pointer text-gray-800"
+                />
+              </Link>
+            </div>
+          </Tooltip>
+        </motion.div>
+        <ThemeSwitch />
       </div>
     </motion.div>
   );
