@@ -9,7 +9,9 @@ export default function Header() {
         <Heading as="h1" fontFamily="JetBrains Mono" className="text-6xl">
           HUB
         </Heading>
-        <div className="flex items-center justify-center p-2 bg-white rounded-full"></div>
+        <div className="flex items-center justify-center p-2 rounded-full"
+        style={{ backgroundColor: "#f7f7f7" }}
+        ></div>
         <Image src="/logo.png" alt="logo" width={150} height={150} />
       </div>
       <Text fontFamily="JetBrains Mono" size="sm" className="text-center w-1/2">
