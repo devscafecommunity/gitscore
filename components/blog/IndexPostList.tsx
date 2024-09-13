@@ -83,7 +83,7 @@ export default function IndexPostList() {
   }, [attempts, toast]);
 
   return (
-    <div className="flex flex-col items-center justify-center gap-4">
+    <div className="flex flex-col items-center justify-center gap-4 max-w-2xl">
       {posts.map((post: PostData) => (
         <PostCard key={post.id} loading={loading} post={post} />
       ))}

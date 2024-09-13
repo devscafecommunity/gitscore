@@ -128,7 +128,7 @@ export default function PostCard({
     >
       <Card className="w-full max-w-2/3 p-4 m-2 ">
         <CardHeader></CardHeader>
-        <CardBody className="flex flex-row gap-2 justify-center items-center">
+        <CardBody className="flex flex-row gap-4 justify-center items-center">
         {loading ? (
             <Skeleton height="20px" />
           ) : (
@@ -145,7 +145,7 @@ export default function PostCard({
             <Text fontFamily="JetBrains Mono">{post.description}</Text>
             <div className="flex flex-row gap-4">
               {post.tags.map((tag, index) => (
-                <Tag key={index} size="sm" colorScheme="blue">
+                <Tag key={index} size="sm" colorScheme="blue" className="p-2">
                   {tag}
                 </Tag>
               ))}
@@ -162,7 +162,7 @@ export default function PostCard({
               }
               fontFamily="JetBrains Mono"
             >
-              Read The Post
+              Ler o post
             </Button>
             <div className="flex flex-row gap-4 justify-center items-center">
               {postIsSaved(post) ? (
@@ -176,15 +176,9 @@ export default function PostCard({
               )}
             </div>
             <div className="flex flex-row gap-4 justify-center items-center">
-              <Button
-                leftIcon={<FaPenFancy />}
-                onClick={() =>
-                  (document.location.href = `/blog/posts/${post.slug}`)
-                }
-                fontFamily="JetBrains Mono"
-              >
+              <Heading as="h5" size="sm" fontFamily="JetBrains Mono">
                 {post.author.name}
-              </Button>
+              </Heading>  
             </div>
             <div className="flex flex-row gap-4 justify-center items-center">
               {postIsReaded(post) ? (

@@ -33,7 +33,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     };
   }
 
-  const res = await fetch(`http://localhost:3000/api/blog/posts/${slug}`); // Fetch the post content from the api: /api/blog/posts/[slug]
+  const res = await fetch(`https://hub.devscafe.pt/api/blog/posts/${slug}`); // Fetch the post content from the api: /api/blog/posts/[slug]
   if (!res.ok) {
     return {
       notFound: true,

@@ -134,7 +134,6 @@ export const getPostDataSimplified = async () => {
 
   const simplifiedPost = new Promise<PostData[]>((resolve, reject) => {
     data.then((res) => {
-      console.log(res.results);
       const pages = res.results as PageObjectResponse[];
 
       const simplifiedPosts = pages.map((page) => {
