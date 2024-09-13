@@ -10,7 +10,7 @@ import { motion } from "framer-motion";
 
 import { CiBookmark, CiBookmarkCheck } from "react-icons/ci";
 import { LuBookOpen, LuBookOpenCheck } from "react-icons/lu";
-import { FaBookReader, FaPenFancy } from "react-icons/fa";
+import { FaBookReader } from "react-icons/fa"; // , FaPenFancy 
 
 import { useCookies } from "react-cookie";
 
