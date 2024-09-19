@@ -195,7 +195,7 @@ export default function EventHeader() {
       <div className="flex flex-col gap-4 justify-center w-full">
       <StatGroup className="flex flex-row gap-4 w-full justify-center" fontFamily="JetBrains Mono">
         <Stat>
-          <StatLabel className="text-center">Distributção</StatLabel>
+          <StatLabel className="text-center">Distribuição</StatLabel>
           <StatNumber className="text-center">
             {" "}
             {totalStartedEvents(events)} / {totalDoneEvents(events)} /{" "}

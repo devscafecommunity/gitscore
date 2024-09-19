@@ -51,7 +51,7 @@ const CustomCursor = () => {
     <>
       {/* Animação do rastro */}
       <motion.div
-        className={`fixed top-0 left-0 z-40 pointer-events-none`}
+        className={`fixed top-0 left-0 z-100 pointer-events-none`}
         style={{
           x: useSpring(cursorX, { stiffness: 50, damping: 30 }),
           y: useSpring(cursorY, { stiffness: 50, damping: 30 }),
