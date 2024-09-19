@@ -7,6 +7,8 @@ import {
     DrawerHeader,
     DrawerOverlay,
     DrawerContent,
+    DrawerFooter,
+    Button
   } from '@chakra-ui/react'
 
 // React Cookie 
@@ -22,14 +24,14 @@ export default function CookiesAlert() {
     const [isOpen, setIsOpen] = useState(false)
 
     // Set an consent cookie if the user agrees
-    // function handleAgree() {
-    //     setCookie('consent', 'true', { path: '/' })
-    //     setIsOpen(false)
-    // }
-    // function handleDisagree() {
-    //     setCookie('consent', 'false', { path: '/' })
-    //     setIsOpen(false)
-    // }
+    function handleAgree() {
+        setCookie('consent', 'true', { path: '/' })
+        setIsOpen(false)
+    }
+    function handleDisagree() {
+        setCookie('consent', 'false', { path: '/' })
+        setIsOpen(false)
+    }
 
     // Alert dialog
     useEffect(() => {
@@ -70,14 +72,14 @@ export default function CookiesAlert() {
                             Não é necessário concordar com o uso de cookies para acessar nosso site, mas algumas funcionalidades não estarão disponíveis, como salvar suas preferências. <br /><br />
                             Não coletamos nenhum dado pessoal, os cookies são usados localmente em seu dispositivo, e você pode apagá-los a qualquer momento.
                         </DrawerBody>
-                        {/* <DrawerFooter>
+                        <DrawerFooter>
                             <Button variant="outline" mr={3} onClick={handleDisagree}>
                                 Discordo
                             </Button>
                             <Button colorScheme="blue" onClick={handleAgree}>
                                 Concordo
                             </Button>
-                        </DrawerFooter> */}
+                        </DrawerFooter>
                     </DrawerContent>
                 </DrawerOverlay>
             </Drawer>
