@@ -4,12 +4,10 @@
 import {
     Drawer,
     DrawerBody,
-    DrawerFooter,
     DrawerHeader,
     DrawerOverlay,
     DrawerContent,
   } from '@chakra-ui/react'
-import { Button } from '@chakra-ui/react'
 
 // React Cookie 
 import { useCookies } from 'react-cookie'
@@ -24,14 +22,14 @@ export default function CookiesAlert() {
     const [isOpen, setIsOpen] = useState(false)
 
     // Set an consent cookie if the user agrees
-    function handleAgree() {
-        setCookie('consent', 'true', { path: '/' })
-        setIsOpen(false)
-    }
-    function handleDisagree() {
-        setCookie('consent', 'false', { path: '/' })
-        setIsOpen(false)
-    }
+    // function handleAgree() {
+    //     setCookie('consent', 'true', { path: '/' })
+    //     setIsOpen(false)
+    // }
+    // function handleDisagree() {
+    //     setCookie('consent', 'false', { path: '/' })
+    //     setIsOpen(false)
+    // }
 
     // Alert dialog
     useEffect(() => {
