@@ -55,7 +55,7 @@ const CustomCursor = () => {
         style={{
           x: useSpring(cursorX, { stiffness: 50, damping: 30 }),
           y: useSpring(cursorY, { stiffness: 50, damping: 30 }),
-          zIndex: 100
+          zIndex: 99999
         }}
         transition={{ type: "spring" }}
       >
@@ -71,7 +71,7 @@ const CustomCursor = () => {
         style={{
           x: springX,
           y: springY,
-          zIndex: 100,
+          zIndex: 99999,
           opacity: isClicked? 0 : 1,
           transformOrigin: "center",
           scale: 1,

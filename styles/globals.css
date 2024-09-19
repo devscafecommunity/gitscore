@@ -42,4 +42,8 @@ body {
 .cursor-style {
   mix-blend-mode: difference;
   background-color: white;
+  /* 
+  Cursor overlay everything: Prevent from being overlapping by other elements 
+  */
+  z-index: 9999;
 }
