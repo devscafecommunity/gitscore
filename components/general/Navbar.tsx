@@ -5,6 +5,7 @@ import React from "react";
 // Icons - Lupe, Home and Star Fa Icons
 import { FaCalendar, FaNewspaper } from "react-icons/fa";
 import { IoDocumentTextOutline } from "react-icons/io5";
+import { GiAnvilImpact } from "react-icons/gi";
 // Theme icons
 import { FaMoon, FaSun } from "react-icons/fa";
 
@@ -48,7 +49,7 @@ export default function Navbar() {
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
       className={`fixed top-0 left-0 right-0 z-50 flex justify-center items-center p-4 shadow-md ${theme} m-8 rounded-xl bg-opacity-50 backdrop-filter backdrop-blur-xl
-      max-w-lg mx-auto
+      max-w-2xl mx-auto
       `}
     >
       <div className="flex items-center gap-4 text-2xl justify-center">
@@ -149,6 +150,34 @@ export default function Navbar() {
             </div>
           </Tooltip>
         </motion.div>
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.2 }}
+          whileHover={{ scale: 1.1, rotate: 20, transition: { duration: 0.3 } }}
+          className="cursor-pointer"
+        >
+          <Tooltip
+            label="Notícias"
+            aria-label="Home"
+            placement="bottom"
+            className="cursor-pointer z-50"
+          >
+            <div
+              className={`flex items-center gap-2 bg-white p-2 rounded-full shadow-md ${theme} ${buttonTheme} p-4`}
+            >
+              <Link href="/codeforge">
+                {/* <FaNewspaper
+                  size={40}
+                  className="cursor-pointer text-gray-800"
+                /> */}
+                <GiAnvilImpact size={40} className="cursor-pointer text-gray-800" />
+              </Link>
+            </div>
+          </Tooltip>
+        </motion.div>
+
+
         <ThemeSwitch />
       </div>
     </motion.div>
