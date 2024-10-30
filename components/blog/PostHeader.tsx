@@ -7,10 +7,14 @@ import { motion } from "framer-motion";
 
 import PostData from "@/utils/interfaces/PostData";
 
+import { useColorMode } from "@chakra-ui/react";
+
 
 import "@fontsource/jetbrains-mono";
 
 export default function PostHeader({ post }: { post: PostData }) {
+  const { colorMode } = useColorMode();
+
   function getDateDifference(date: string) {
     const currentDate = new Date();
     const postDate = new Date(date);
@@ -47,7 +51,8 @@ export default function PostHeader({ post }: { post: PostData }) {
   }
 
   return (
-    <div className="flex flex-col items-center justify-center gap-4">
+    <div className={`
+    flex flex-col items-center justify-center gap-10 p-10`}>
       <Image
         src={post.cover}
         alt={post.title}
@@ -57,9 +62,11 @@ export default function PostHeader({ post }: { post: PostData }) {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1 }}
-        className="flex flex-col gap-4 justify-center items-center"
+        className={`
+          flex flex-col gap-4 p-10 justify-center items-center rounded-lg shadow-lg opacity-90 
+          ${colorMode === "light" ? "bg-white" : "bg-black"}`}
       >
-        <Heading as="h1" size="xl" fontFamily="JetBrains Mono">
+        <Heading as="h1" size="xl" fontFamily="JetBrains Mono" className="max-w-2xl">
           {post.title}
         </Heading>
         <Text className="flex flex-col gap-4 max-w-xl" fontFamily="JetBrains Mono">

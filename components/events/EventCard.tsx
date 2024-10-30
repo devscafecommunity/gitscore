@@ -88,6 +88,7 @@ export default function EventCard({ event }: { event: EventData }) {
       key={event.id}
       whileHover={{ scale: 1.0 }}
       whileTap={{ scale: 0.95 }}
+      className=""
     >
       <div className="flex flex-col gap-4 p-28">
         <Image

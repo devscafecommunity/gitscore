@@ -125,7 +125,8 @@ export default function Navbar() {
             </div>
           </Tooltip>
         </motion.div>
-        <motion.div
+
+        {/* <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.2 }}
@@ -149,8 +150,9 @@ export default function Navbar() {
               </Link>
             </div>
           </Tooltip>
-        </motion.div>
-        <motion.div
+        </motion.div> */}
+
+        {/* <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.2 }}
@@ -167,15 +169,11 @@ export default function Navbar() {
               className={`flex items-center gap-2 bg-white p-2 rounded-full shadow-md ${theme} ${buttonTheme} p-4`}
             >
               <Link href="/codeforge">
-                {/* <FaNewspaper
-                  size={40}
-                  className="cursor-pointer text-gray-800"
-                /> */}
                 <GiAnvilImpact size={40} className="cursor-pointer text-gray-800" />
               </Link>
             </div>
           </Tooltip>
-        </motion.div>
+        </motion.div> */}
 
 
         <ThemeSwitch />

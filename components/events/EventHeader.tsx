@@ -183,13 +183,13 @@ export default function EventHeader() {
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
       className="bg-white bg-opacity-30 p-6 m-6 w-full 
-      flex justify-center flex-col items-center gap-4"
+      flex justify-center flex-col items-center gap-4 text-white"
     >
-      <Heading as="h1" size="2xl" fontFamily="JetBrains Mono">
-        Eventos Dev&apos;s Café
+      <Heading as="h1" size="3xl" fontFamily="JetBrains Mono" className="p-2">
+        Eventos <span className="bg-black p-1 rounded-2xl">Dev&apos;s Café</span>
       </Heading>
-      <Text fontSize="xl" color="gray.500" fontFamily="JetBrains Mono">
-        Aqui você encontra informações sobre os eventos
+      <Text fontSize="xl" fontFamily="JetBrains Mono">
+        Aqui você encontra <span className="bg-black p-1 rounded-md">informações sobre os eventos</span>
       </Text>
       <Divider my={5} />
 

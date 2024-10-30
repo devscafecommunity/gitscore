@@ -1,4 +1,4 @@
-import { Grid, GridItem } from "@chakra-ui/react";
+import { background, Grid, GridItem } from "@chakra-ui/react";
 
 import { useEffect, useState } from "react";
 
@@ -276,6 +276,7 @@ export default function NewsLister() {
         templateRows="repeat(2, 1fr)"
         templateColumns="repeat(5, 1fr)"
         gap={4}
+        className="text-white"
       >
         <GridItem rowSpan={2} colSpan={1}>
           {news &&

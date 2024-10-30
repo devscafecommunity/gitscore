@@ -148,18 +148,19 @@ export default function ListEvents() {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className="flex flex-col space-y-4 justify-center items-center w-full"
+      className="flex flex-col space-y-4 justify-center items-center w-full text-white"
     >
       <div className="flex flex-col justify-center items-center bg-white 
-        opacity-40 rounded-lg shadow-lg p-4 w-full max-w-lg gap-4
+         rounded-lg shadow-lg p-4 w-full max-w-lg gap-4 outline-none
       ">
-        <Heading fontFamily="JetBrains Mono" className="" color={'gray'}>Events</Heading>
+        <Heading fontFamily="JetBrains Mono" className="" color={'black'}>Events</Heading>
         <Input
           value={search}
           onChange={(e) => setSearch(e.target.value)}
           placeholder="Buscar eventos..."
           className="w-full max-w-lg p-2" fontFamily="JetBrains Mono"
           bgColor={'black'}
+          focusBorderColor="black"
         />
       </div>
       {loading ? (
@@ -170,8 +171,9 @@ export default function ListEvents() {
             key={index}
             whileHover={{ scale: 1.0 }}
             whileTap={{ scale: 0.95 }}
+            className="flex flex-col gap-4 p-28"
           >
-            <div className="flex flex-col gap-4 p-28">
+            <div className="flex flex-col gap-4 p-28 text-white">
               <div className="flex flex-row justify-center items-center w-full">
                 <Image
                   src={event.banner ?? "https://i.imgur.com/UxNDPFP.png"}

@@ -12,7 +12,7 @@ export default function IndexHeader() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.2 }}
-            className="flex flex-col items-center justify-center gap-4"
+            className="flex flex-col items-center justify-center gap-4 text-white"
         >
             <Heading as="h1" size="4xl" className="text-center" fontFamily="JetBrains Mono">
                 Dev&apos;s Blog
