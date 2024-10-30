@@ -150,13 +150,18 @@ export default function ListEvents() {
       exit={{ opacity: 0 }}
       className="flex flex-col space-y-4 justify-center items-center w-full"
     >
-      <Heading fontFamily="JetBrains Mono">Events</Heading>
-      <Input
-        value={search}
-        onChange={(e) => setSearch(e.target.value)}
-        placeholder="Buscar eventos..."
-        className="w-full max-w-lg" fontFamily="JetBrains Mono"
-      />
+      <div className="flex flex-col justify-center items-center bg-white 
+        opacity-40 rounded-lg shadow-lg p-4 w-full max-w-lg gap-4
+      ">
+        <Heading fontFamily="JetBrains Mono" className="" color={'gray'}>Events</Heading>
+        <Input
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+          placeholder="Buscar eventos..."
+          className="w-full max-w-lg p-2" fontFamily="JetBrains Mono"
+          bgColor={'black'}
+        />
+      </div>
       {loading ? (
         <Text fontFamily="JetBrains Mono">Loading...</Text>
       ) : (

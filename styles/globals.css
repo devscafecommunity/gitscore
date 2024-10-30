@@ -8,10 +8,10 @@ import "@fontsource/jetbrains-mono/400.css";
 import "@fontsource/jetbrains-mono/400-italic.css"; */
 
 /* Custom styles */
-:root {
+/* :root {
   --background: #ffffff;
   --foreground: #171717;
-}
+} */
 
 @media (prefers-color-scheme: dark) {
   :root {
@@ -21,10 +21,17 @@ import "@fontsource/jetbrains-mono/400-italic.css"; */
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
   font-family: "JetBrains Mono", monospace;
   cursor: none !important;
+}
+
+body > * {
+  background-image: url("/media/img/background.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-clip: border-box;
 }
 
 *,
