@@ -182,13 +182,8 @@ export default function EventHeader() {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
-      // className="flex flex-col items-center justify-center w-full m-6 p-6
-      // bg-white opacity-10
-      
       className="bg-white bg-opacity-30 p-6 m-6 w-full 
       flex justify-center flex-col items-center gap-4"
-
-      // opacity-40 bg-white
     >
       <Heading as="h1" size="2xl" fontFamily="JetBrains Mono">
         Eventos Dev&apos;s Café
