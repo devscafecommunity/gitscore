@@ -3,9 +3,11 @@ import Link from "next/link";
 import React from "react";
 
 // Icons - Lupe, Home and Star Fa Icons
-import { FaCalendar, FaNewspaper } from "react-icons/fa";
+import { FaCalendar
+  // ,FaNewspaper 
+} from "react-icons/fa";
 import { IoDocumentTextOutline } from "react-icons/io5";
-import { GiAnvilImpact } from "react-icons/gi";
+// import { GiAnvilImpact } from "react-icons/gi";
 // Theme icons
 import { FaMoon, FaSun } from "react-icons/fa";
 
@@ -152,7 +154,8 @@ export default function Navbar() {
           </Tooltip>
         </motion.div> */}
 
-        {/* <motion.div
+        {/* 
+        <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.2 }}
@@ -173,7 +176,8 @@ export default function Navbar() {
               </Link>
             </div>
           </Tooltip>
-        </motion.div> */}
+        </motion.div> 
+        */}
 
 
         <ThemeSwitch />

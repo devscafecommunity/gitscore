@@ -1,4 +1,6 @@
-import { background, Grid, GridItem } from "@chakra-ui/react";
+import { 
+  // background, 
+  Grid, GridItem } from "@chakra-ui/react";
 
 import { useEffect, useState } from "react";
 

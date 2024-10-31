@@ -2,7 +2,7 @@ import { Text, Heading, Image } from "@chakra-ui/react";
 
 import "@fontsource/jetbrains-mono";
 
-import { useColorMode } from "@chakra-ui/react";
+// import { useColorMode } from "@chakra-ui/react";
 
 export default function Header() {
 
