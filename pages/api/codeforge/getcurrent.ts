@@ -1,7 +1,7 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import { getCurrentCodeforge } from "@/utils/Codeforge";
 
-export default async (req: NextApiRequest, res: NextApiResponse) => {
+const handler = async (req: NextApiRequest, res: NextApiResponse) => {
     try {
         const codeforge = await getCurrentCodeforge();
         res.status(200).json(codeforge);
@@ -13,4 +13,6 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
         }
     }
 };
+
+export default handler;
 

@@ -201,7 +201,7 @@ interface Event {
 }
 */
 
-interface Codeforge {
+export interface Codeforge {
     id: string;
     title: string;
     lore: string;
@@ -213,7 +213,6 @@ interface Codeforge {
     cover: string;
 }
     
-
 
 export const getCodeforgeRaw = async () => {
     return notionClient.databases.query({
@@ -239,13 +238,20 @@ export const getCurrentCodeforge = async () => {
             start_date: result.properties.Start?.date?.start ?? "",
             end_date: result.properties.End?.date?.start ?? "",
             solution: result.properties.Solution?.url ?? "",
-            cover: result.properties.Files_and_media?.files[0]?.external?.url ?? "",
+            cover: result.properties.Cover?.files[0]?.external?.url ?? result.properties.Files_and_media?.files[0]?.external?.url
         };
         return event
-        // Add more properties if needed
-        // ...
     });
-    return data[0];
-    // Return the first event if there's only one
-    // Otherwise, return the array of events
+
+    const today = new Date();
+    const todayString = today.toISOString().split("T")[0];
+    const eventsToday = data.filter((event: Codeforge) => {
+        const startDate = new Date(event.start_date);
+        const endDate = new Date(event.end_date);
+        return startDate.toISOString().split("T")[0] === todayString && endDate.toISOString().split("T")[0] >= todayString;
+    });
+    if (eventsToday.length > 0) {
+        return eventsToday[0];
+    }
+    return data[data.length - 1];
 };
