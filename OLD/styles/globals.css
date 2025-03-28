@@ -1,0 +1,56 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+/* import "@fontsource/jetbrains-mono";
+import "@fontsource/jetbrains-mono/400.css";
+import "@fontsource/jetbrains-mono/400-italic.css"; */
+
+/* Custom styles */
+/* :root {
+  --background: #ffffff;
+  --foreground: #171717;
+} */
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  font-family: "JetBrains Mono", monospace;
+  cursor: none !important;
+}
+
+body > * {
+  background-image: url("/media/img/background.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-clip: border-box;
+}
+
+*,
+*::before,
+*::after {
+  cursor: none !important;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+.cursor-style {
+  mix-blend-mode: difference;
+  background-color: white;
+  /* 
+  Cursor overlay everything: Prevent from being overlapping by other elements 
+  */
+  z-index: 9999;
+}

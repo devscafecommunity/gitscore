@@ -1,118 +1,105 @@
-import type { Config } from "tailwindcss";
+import type { Config } from "tailwindcss"
 
-/*
-theme: {
-    extend: {
-      typography: {
-        proselight: {
-          css: {
-            '--tw-prose-body': theme('colors.gray.800'),
-            '--tw-prose-headings': theme('colors.gray.900'),
-            '--tw-prose-lead': theme('colors.gray.700'),
-            '--tw-prose-links': theme('colors.blue.600'),
-            '--tw-prose-bold': theme('colors.gray.900'),
-            '--tw-prose-counters': theme('colors.gray.600'),
-            '--tw-prose-bullets': theme('colors.gray.400'),
-            '--tw-prose-hr': theme('colors.gray.300'),
-            '--tw-prose-quotes': theme('colors.gray.900'),
-            '--tw-prose-quote-borders': theme('colors.gray.300'),
-            '--tw-prose-captions': theme('colors.gray.700'),
-            '--tw-prose-code': theme('colors.red.600'),
-            '--tw-prose-pre-code': theme('colors.gray.100'),
-            '--tw-prose-pre-bg': theme('colors.gray.900'),
-            '--tw-prose-th-borders': theme('colors.gray.300'),
-            '--tw-prose-td-borders': theme('colors.gray.200'),
-          },
-        },
-        prosedark: {
-          css: {
-            '--tw-prose-body': theme('colors.gray.200'),
-            '--tw-prose-headings': theme('colors.white'),
-            '--tw-prose-lead': theme('colors.gray.300'),
-            '--tw-prose-links': theme('colors.blue.400'),
-            '--tw-prose-bold': theme('colors.white'),
-            '--tw-prose-counters': theme('colors.gray.400'),
-            '--tw-prose-bullets': theme('colors.gray.600'),
-            '--tw-prose-hr': theme('colors.gray.700'),
-            '--tw-prose-quotes': theme('colors.gray.100'),
-            '--tw-prose-quote-borders': theme('colors.gray.700'),
-            '--tw-prose-captions': theme('colors.gray.400'),
-            '--tw-prose-code': theme('colors.green.400'),
-            '--tw-prose-pre-code': theme('colors.gray.300'),
-            '--tw-prose-pre-bg': 'rgb(0 0 0 / 50%)',
-            '--tw-prose-th-borders': theme('colors.gray.600'),
-            '--tw-prose-td-borders': theme('colors.gray.700'),
-          },
-        },
+const config = {
+  darkMode: ["class"],
+  content: [
+    "./pages/**/*.{ts,tsx}",
+    "./components/**/*.{ts,tsx}",
+    "./app/**/*.{ts,tsx}",
+    "./src/**/*.{ts,tsx}",
+    "*.{js,ts,jsx,tsx,mdx}",
+  ],
+  prefix: "",
+  theme: {
+    container: {
+      center: true,
+      padding: "2rem",
+      screens: {
+        "2xl": "1400px",
       },
     },
-*/
-
-// @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap');
-const config: Config = {
-  content: [
-    "./pages/**/*.{js,ts,jsx,tsx,mdx}",
-    "./components/**/*.{js,ts,jsx,tsx,mdx}",
-    "./app/**/*.{js,ts,jsx,tsx,mdx}",
-    // The following line is used to rende the post content so don't remove it
-    './utility/**/*.{js,ts,jsx,tsx,mdx}',
-  ],
-  theme: {
     extend: {
       colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
+        border: "hsl(var(--border))",
+        input: "hsl(var(--input))",
+        ring: "hsl(var(--ring))",
+        background: "hsl(var(--background))",
+        foreground: "hsl(var(--foreground))",
+        primary: {
+          DEFAULT: "hsl(var(--primary))",
+          foreground: "hsl(var(--primary-foreground))",
+        },
+        secondary: {
+          DEFAULT: "hsl(var(--secondary))",
+          foreground: "hsl(var(--secondary-foreground))",
+        },
+        destructive: {
+          DEFAULT: "hsl(var(--destructive))",
+          foreground: "hsl(var(--destructive-foreground))",
+        },
+        muted: {
+          DEFAULT: "hsl(var(--muted))",
+          foreground: "hsl(var(--muted-foreground))",
+        },
+        accent: {
+          DEFAULT: "hsl(var(--accent))",
+          foreground: "hsl(var(--accent-foreground))",
+        },
+        popover: {
+          DEFAULT: "hsl(var(--popover))",
+          foreground: "hsl(var(--popover-foreground))",
+        },
+        card: {
+          DEFAULT: "hsl(var(--card))",
+          foreground: "hsl(var(--card-foreground))",
+        },
+        // Custom colors for Dev's Cafe Hub
+        coffee: {
+          DEFAULT: "#6F4E37", // Primary Coffee Brown
+          light: "#A67C52",
+          dark: "#5a3f2d",
+        },
+        mint: {
+          DEFAULT: "#A2D9B1", // Accent Mint Green
+          light: "#C1E7CB",
+          dark: "#8fc99e",
+        },
+        amber: {
+          DEFAULT: "#D4A373", // Secondary Soft Orange/Amber
+          light: "#E6C9A8",
+          dark: "#c29366",
+        },
       },
-      fontFamily: {
-        mono: "'JetBrains Mono', monospace",
+      borderRadius: {
+        lg: "var(--radius)",
+        md: "calc(var(--radius) - 2px)",
+        sm: "calc(var(--radius) - 4px)",
       },
-      // typography: ({ theme }) => ({ // Theme has error
-      typography: (theme: any) => ({
-        proselight: {
+      keyframes: {
+        "accordion-down": {
+          from: { height: "0" },
+          to: { height: "var(--radix-accordion-content-height)" },
+        },
+        "accordion-up": {
+          from: { height: "var(--radix-accordion-content-height)" },
+          to: { height: "0" },
+        },
+      },
+      animation: {
+        "accordion-down": "accordion-down 0.2s ease-out",
+        "accordion-up": "accordion-up 0.2s ease-out",
+      },
+      typography: {
+        DEFAULT: {
           css: {
-            '--tw-prose-body': theme('colors.gray.800'),
-            '--tw-prose-headings': theme('colors.gray.900'),
-            '--tw-prose-lead': theme('colors.gray.700'),
-            '--tw-prose-links': theme('colors.blue.600'),
-            '--tw-prose-bold': theme('colors.gray.900'),
-            '--tw-prose-counters': theme('colors.gray.600'),
-            '--tw-prose-bullets': theme('colors.gray.400'),
-            '--tw-prose-hr': theme('colors.gray.300'),
-            '--tw-prose-quotes': theme('colors.gray.900'),
-            '--tw-prose-quote-borders': theme('colors.gray.300'),
-            '--tw-prose-captions': theme('colors.gray.700'),
-            '--tw-prose-code': theme('colors.red.600'),
-            '--tw-prose-pre-code': theme('colors.gray.100'),
-            '--tw-prose-pre-bg': theme('colors.gray.900'),
-            '--tw-prose-th-borders': theme('colors.gray.300'),
-            '--tw-prose-td-borders': theme('colors.gray.200'),
+            maxWidth: "100%",
           },
         },
-        prosedark: {
-          css: {
-            '--tw-prose-body': theme('colors.gray.200'),
-            '--tw-prose-headings': theme('colors.white'),
-            '--tw-prose-lead': theme('colors.gray.300'),
-            '--tw-prose-links': theme('colors.blue.400'),
-            '--tw-prose-bold': theme('colors.white'),
-            '--tw-prose-counters': theme('colors.gray.400'),
-            '--tw-prose-bullets': theme('colors.gray.600'),
-            '--tw-prose-hr': theme('colors.gray.700'),
-            '--tw-prose-quotes': theme('colors.gray.100'),
-            '--tw-prose-quote-borders': theme('colors.gray.700'),
-            '--tw-prose-captions': theme('colors.gray.400'),
-            '--tw-prose-code': theme('colors.green.400'),
-            '--tw-prose-pre-code': theme('colors.gray.300'),
-            '--tw-prose-pre-bg': 'rgb(0 0 0 / 50%)',
-            '--tw-prose-th-borders': theme('colors.gray.600'),
-            '--tw-prose-td-borders': theme('colors.gray.700'),
-          },
-        },
-      }),
+      },
     },
   },
-  plugins: [
-    require("@tailwindcss/typography"),
-  ],
-};
-export default config;
+  plugins: [require("tailwindcss-animate"), require("@tailwindcss/typography")],
+} satisfies Config
+
+export default config
+
