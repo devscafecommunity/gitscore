@@ -1,3 +1,5 @@
+import { calculateGitScore, generateBadges } from "@/lib/score-calculator"
+
 const GITHUB_TOKEN = process.env.GITHUB_TOKEN || "";
 
 interface NextFetchRequestConfig {
@@ -7,6 +9,63 @@ interface NextFetchRequestConfig {
 
 interface ExtendedRequestInit extends RequestInit {
   next?: NextFetchRequestConfig;
+}
+
+// Cache para scores calculados
+const scoreCache = new Map<string, { 
+  score: number; 
+  badges: any[]; 
+  timestamp: number; 
+  userDataHash: string; 
+}>()
+
+const CACHE_DURATION = 1000 * 60 * 60 * 24 // 24 horas
+
+// Função para gerar hash dos dados do usuário (para detectar mudanças)
+function generateUserDataHash(userData: any, reposData: any[]): string {
+  const hashData = {
+    followers: userData.followers,
+    public_repos: userData.public_repos,
+    public_gists: userData.public_gists,
+    stars: reposData.reduce((acc: number, repo: any) => acc + repo.stargazers_count, 0),
+    forks: reposData.reduce((acc: number, repo: any) => acc + repo.forks_count, 0),
+    lastPush: reposData.length > 0 ? reposData[0].pushed_at : null,
+  }
+  return JSON.stringify(hashData)
+}
+
+// Função para obter score com cache
+export async function getCachedScore(username: string): Promise<{ score: number; badges: any[] }> {
+  const now = Date.now()
+  const userKey = username.toLowerCase()
+  
+  const userData = await fetchGitHubUser(username)
+  const reposData = await fetchUserRepos(username)
+  const currentHash = generateUserDataHash(userData, reposData)
+  
+  // Verificar se existe cache válido
+  const cached = scoreCache.get(userKey)
+  if (cached && 
+      (now - cached.timestamp) < CACHE_DURATION && 
+      cached.userDataHash === currentHash) {
+    console.log(`Using cached score for ${username}`)
+    return { score: cached.score, badges: cached.badges }
+  }
+  
+  // Calcular novo score
+  // console.log(`Calculating new score for ${username}`)
+  const score = calculateGitScore(userData, reposData)
+  const badges = generateBadges(userData, reposData)
+  
+  // Armazenar no cache
+  scoreCache.set(userKey, {
+    score,
+    badges,
+    timestamp: now,
+    userDataHash: currentHash
+  })
+  
+  return { score, badges }
 }
 
 export async function fetchGitHubUser(username: string) {
@@ -103,27 +162,6 @@ export async function fetchPopularDevelopers(location?: string, language?: strin
   return response.json()
 }
 
-// Função para calcular GitScore baseado nos dados do usuário e repositórios
-export function calculateGitScore(user: any, repos: any[]) {
-  const totalStars = repos.reduce((acc, repo) => acc + repo.stargazers_count, 0)
-  const totalForks = repos.reduce((acc, repo) => acc + repo.forks_count, 0)
-  const publicRepos = user.public_repos || repos.length
-  const followers = user.followers || 0
-  const accountAge = Math.max(1, Math.floor((Date.now() - new Date(user.created_at).getTime()) / (1000 * 60 * 60 * 24 * 365)))
-
-  // Cálculo do score baseado em múltiplos fatores
-  const starScore = Math.sqrt(totalStars) * 10
-  const forkScore = Math.sqrt(totalForks) * 8
-  const repoScore = Math.sqrt(publicRepos) * 15
-  const followerScore = Math.sqrt(followers) * 12
-  const consistencyBonus = Math.min(100, (publicRepos / accountAge) * 20)
-
-  const rawScore = starScore + forkScore + repoScore + followerScore + consistencyBonus
-  
-  // Normalizar para uma escala mais intuitiva
-  return Math.round(rawScore)
-}
-
 // Função para obter rank baseado no score
 export function getRankFromScore(score: number): string {
   if (score >= 4000) return "SS+"
@@ -160,7 +198,7 @@ export async function fetchLeaderboardData(filters: {
           fetchUserRepos(dev.login)
         ])
         
-        const score = calculateGitScore(userDetails, repos)
+        const { score, badges } = await getCachedScore(dev.login)
         const rank = getRankFromScore(score)
         
         // Filtrar por score se especificado

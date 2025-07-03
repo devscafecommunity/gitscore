@@ -1,13 +1,11 @@
 import { type NextRequest, NextResponse } from "next/server"
-import { fetchGitHubUser, fetchUserRepos } from "@/lib/github-api"
-import { calculateGitScore, generateBadges } from "@/lib/score-calculator"
+import { fetchGitHubUser, fetchUserRepos, getCachedScore } from "@/lib/github-api"
 
 export async function GET(request: NextRequest, { params }: { params: { username: string } }) {
   try {
     const userData = await fetchGitHubUser(params.username)
     const reposData = await fetchUserRepos(params.username)
-    const score = calculateGitScore(userData, reposData)
-    const badges = generateBadges(userData, reposData).slice(0, 3) // Mostrar apenas 3 badges no banner
+    const { score, badges } = await getCachedScore(params.username)
 
     const svg = generateScoreCard({
       username: userData.login,
@@ -16,8 +14,8 @@ export async function GET(request: NextRequest, { params }: { params: { username
       avatar: userData.avatar_url,
       followers: userData.followers,
       repos: userData.public_repos,
-      stars: reposData.reduce((acc, repo) => acc + repo.stargazers_count, 0),
-      badges,
+      stars: reposData.reduce((acc: number, repo: any) => acc + repo.stargazers_count, 0),
+      badges: badges.slice(0, 3),
     })
 
     return new NextResponse(svg, {

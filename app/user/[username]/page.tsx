@@ -4,8 +4,7 @@ import { UserBadges } from "@/components/user-badges"
 import { UserStats } from "@/components/user-stats"
 import { UserRepos } from "@/components/user-repos"
 import { ReadmeMD } from "@/components/readme-md"
-import { calculateGitScore, generateBadges } from "@/lib/score-calculator"
-import { fetchGitHubUser, fetchUserRepos } from "@/lib/github-api"
+import { fetchGitHubUser, fetchUserRepos, getCachedScore } from "@/lib/github-api"
 
 interface PageProps {
   params: {
@@ -18,8 +17,7 @@ export default async function UserPage({ params }: PageProps) {
     const userData = await fetchGitHubUser(params.username)
     const reposData = await fetchUserRepos(params.username)
 
-    const score = calculateGitScore(userData, reposData)
-    const badges = generateBadges(userData, reposData)
+    const { score, badges } = await getCachedScore(params.username)
 
     return (
       <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100 dark:from-slate-900 dark:to-slate-800">

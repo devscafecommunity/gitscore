@@ -5,11 +5,24 @@ export function calculateGitScore(userData: any, reposData: any[]) {
   const publicRepos = userData.public_repos
   const publicGists = userData.public_gists
 
-  // Simular contribuições (em uma implementação real, usaria GraphQL)
-  const contributions = Math.floor(Math.random() * 1000) + 200
+  // Calcular contribuições baseado em dados existentes ao invés de aleatório
+  const contributions = Math.min(
+    reposData.reduce((acc, repo) => acc + repo.open_issues_count, 0) * 10 + 
+    publicRepos * 15 + 
+    publicGists * 5,
+    2000
+  )
 
-  // Calcular dias desde último commit (simulado)
-  const daysSinceLastCommit = Math.floor(Math.random() * 30)
+  // Calcular "frescor" baseado na data do último push (ao invés de aleatório)
+  const now = new Date()
+  const lastPushDates = reposData
+    .filter(repo => repo.pushed_at)
+    .map(repo => new Date(repo.pushed_at))
+    .sort((a, b) => b.getTime() - a.getTime())
+  
+  const daysSinceLastCommit = lastPushDates.length > 0 
+    ? Math.min(Math.floor((now.getTime() - lastPushDates[0].getTime()) / (1000 * 60 * 60 * 24)), 365)
+    : 365
 
   const score = Math.max(
     0,
@@ -28,7 +41,14 @@ export function calculateGitScore(userData: any, reposData: any[]) {
 export function generateBadges(userData: any, reposData: any[]) {
   const stars = reposData.reduce((acc, repo) => acc + repo.stargazers_count, 0)
   const forks = reposData.reduce((acc, repo) => acc + repo.forks_count, 0)
-  const contributions = Math.floor(Math.random() * 1000) + 200
+  
+  // Calcular contribuições baseado em dados existentes ao invés de aleatório
+  const contributions = Math.min(
+    reposData.reduce((acc, repo) => acc + repo.open_issues_count, 0) * 10 + 
+    userData.public_repos * 15 + 
+    userData.public_gists * 5,
+    2000
+  )
 
   // Calcular linguagens únicas
   const languages = new Set(reposData.filter((repo) => repo.language).map((repo) => repo.language))

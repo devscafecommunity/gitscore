@@ -27,9 +27,10 @@ export default function LeaderboardPage({ searchParams }: PageProps) {
         </div>
 
         {/* Filters */}
-        <div className="mb-8">
+        {/* Desativado temporariamente */}
+        {/* <div className="mb-8 mx-auto max-w-6xl">
           <LeaderboardFilters />
-        </div>
+        </div> */}
 
         {/* Content */}
         <Suspense fallback={<LeaderboardSkeleton />}>
