@@ -76,7 +76,7 @@ export default function HomePage() {
       </section>
 
       {/* Top Users Preview */}
-      <section className="container mx-auto px-4 py-16">
+      {/* <section className="container mx-auto px-4 py-16">
         <div className="text-center mb-12">
           <h2 className="text-3xl font-bold mb-4">🔥 Top Desenvolvedores da Semana</h2>
           <p className="text-slate-600 dark:text-slate-300">Os desenvolvedores com maior score esta semana</p>
@@ -92,7 +92,7 @@ export default function HomePage() {
             </Button>
           </Link>
         </div>
-      </section>
+      </section> */}
 
       {/* Score Calculation */}
       <section className="container mx-auto px-4 py-16 bg-white/50 dark:bg-slate-800/50 rounded-lg">
